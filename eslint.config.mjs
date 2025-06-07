@@ -6,13 +6,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    ignores: [
-      "dist",
-      "**/*.astro",
-      ".astro",
-      ".sanity",
-      "src/sanity/schemaTypes/*.ts",
-    ],
+    ignores: ["dist", "**/*.astro", ".astro", ".sanity"],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -34,7 +28,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ["apps/landing/src/sanity/schemaTypes/*.{ts,tsx}"],
+    files: ["src/sanity/schemaTypes/*.{ts,tsx}"],
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
     },

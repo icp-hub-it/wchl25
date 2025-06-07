@@ -22,13 +22,6 @@ export default defineConfig(({ mode }) => ({
           destination: "/studio",
         },
       ],
-      redirects: [
-        {
-          source: "/en/whitepaper",
-          location: "/en",
-          code: 301,
-        },
-      ],
     },
   },
   orbiter: {
