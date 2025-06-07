@@ -10,7 +10,8 @@
     "astro": "astro",
     "lint": "eslint . && pnpm astro check",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "deploy": "juno deploy"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -73,6 +74,7 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
       "esbuild",
       "sharp"
     ]
