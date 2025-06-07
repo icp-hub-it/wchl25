@@ -3,13 +3,15 @@ import { defineConfig } from "@junobuild/config";
 export default defineConfig(({ mode }) => ({
   satellite: {
     ids: {
-      development: "hc2yi-zqaaa-aaaal-asgba-cai",
-      staging: "hc2yi-zqaaa-aaaal-asgba-cai",
-      production: "hc2yi-zqaaa-aaaal-asgba-cai",
+      development: "hx5jf-yyaaa-aaaal-asgcq-cai",
+      staging: "hx5jf-yyaaa-aaaal-asgcq-cai",
+      production: "hx5jf-yyaaa-aaaal-asgcq-cai",
     },
     source: "dist",
     predeploy: [
       "rm -rf dist .sanity",
+      "mkdir -p public/assets/preloaded", // Make sure the preloaded folder exists
+      "mkdir -p public/assets/files", // Make sure the files folder exists
       `pnpm build --mode ${mode}`, // Build the Astro + Sanity website
       "pnpm sanity build dist/studio -y", // compile Sanity Studio manually
     ],
