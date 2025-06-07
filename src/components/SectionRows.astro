@@ -1,0 +1,53 @@
+---
+import type { PortableTextBlock } from "@portabletext/types";
+import Link from "./Link.astro";
+import { PortableText } from "astro-portabletext";
+import type { LinkType } from "../utils/sanity";
+
+const { data } = Astro.props;
+---
+
+<section class="grid">
+  <div class="relative grid">
+    <!-- <Marquee
+      className="relative z-10 bg-primary text-white items-center border-t-2 border-primary"
+    >
+      {
+        data.title?.map((str: string) => (
+          <>
+            <span class="mono py-0.5">{str}</span>
+            <span class="plus bg-white" />
+          </>
+        ))
+      }
+    </Marquee> -->
+    {
+      data.items?.map(
+        (
+          item: { headline: string; text: PortableTextBlock; link: LinkType },
+          index: number,
+        ) => (
+          <div class={`sticky top-[4.5rem] border-t-2 border-black bg-white`}>
+            <div class="container mx-auto grid items-start gap-6 p-4 md:grid-cols-2 md:p-6">
+              <span class="mono flex items-center gap-2">
+                <span class="bg-primary block h-2 w-2" />
+                {(index + 1).toLocaleString("en-US", {
+                  minimumIntegerDigits: 2,
+                  useGrouping: false,
+                })}
+              </span>
+
+              <div class="flex flex-col items-start">
+                <h3 class="t-2">{item.headline}</h3>
+                <div class="body mt-6">
+                  <PortableText value={item.text} />
+                </div>
+                {item.link && <Link link={item.link} classes="mt-4" />}
+              </div>
+            </div>
+          </div>
+        ),
+      )
+    }
+  </div>
+</section>

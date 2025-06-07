@@ -1,0 +1,39 @@
+---
+const { className } = Astro.props;
+---
+
+<div class={`relative flex overflow-x-hidden items-center ${className}`}>
+  <div class="animate-marquee flex items-center gap-2 py-1 whitespace-nowrap">
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+  </div>
+
+  <div
+    class="animate-marquee2 absolute top-0 flex items-center gap-2 py-1 pl-2 whitespace-nowrap"
+  >
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+    <slot />
+  </div>
+</div>

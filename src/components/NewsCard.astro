@@ -1,0 +1,58 @@
+---
+import { SanityImage } from "./SanityImage.astro";
+import { formatDate } from "../utils";
+import type { Params } from "astro";
+import { urlFor } from "../utils/image";
+
+const { data } = Astro.props;
+const { locale } = Astro.params as Params;
+
+const plainText = data.body
+  ? data.body
+      .filter((block: any) => block.children)
+      .map((block: any) =>
+        block.children.map((child: any) => child.text).join(" "),
+      )
+      .join(" ")
+  : "";
+---
+
+<a
+  href={`/${locale}/news/${data.slug?.current}`}
+  class="group grid w-full border-t-2 border-black transition-all hover:bg-neutral-100/50 sm:grid-cols-3 lg:grid-cols-4"
+>
+  <div class="overflow-hidden bg-neutral-100 sm:min-h-48 lg:min-h-64">
+    {
+      data.mainImage && (
+        <SanityImage
+          url={urlFor(data.mainImage).url()}
+          height={500}
+          width={500}
+          alt=""
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+      )
+    }
+  </div>
+
+  <div
+    class={`p-4 md:p-6 grid  gap-y-4 sm:col-span-2 lg:col-span-3 lg:grid-cols-3`}
+  >
+    <div class="flex flex-col justify-between gap-4 md:col-span-2">
+      <h5 class="t-3 lg:max-w-sm">{data.title}</h5>
+      <span class="mono flex items-center gap-2">
+        <span class="bg-primary block h-2 w-2"></span>
+        {formatDate(data.publishedAt ?? data._createdAt)}
+      </span>
+    </div>
+    <div class="flex flex-col items-start justify-between gap-4">
+      <div class="line-clamp-3 lg:line-clamp-[7]">
+        {plainText}
+      </div>
+      <span class="btn">
+        <span class="text pill">Read article</span>
+        <span class="arrow pill"></span>
+      </span>
+    </div>
+  </div>
+</a>

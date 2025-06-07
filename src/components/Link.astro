@@ -1,0 +1,30 @@
+---
+import type { Params } from "astro";
+import { preloadSanityFile } from "../utils/preloadSanityFile";
+
+const { link, classes } = Astro.props;
+const { locale: _locale } = Astro.params as Params;
+
+let linkFileUrl = link?.file?.asset?.url;
+
+if (link?.type === "file") {
+  linkFileUrl = await preloadSanityFile(
+    link.file.asset.url,
+    link.file.asset.originalFilename,
+  );
+}
+---
+
+<a
+  href={link?.type === "reference"
+    ? `/${link?.reference?.language ?? "en"}/${link?.reference?.slug?.current}`
+    : link?.type === "file"
+      ? linkFileUrl
+      : link?.url}
+  target={link?.type === "reference" ? "" : "_blank"}
+  class={`${classes && classes} btn ${link?.type === "reference" ? "" : "btn-external"}`}
+>
+  <span class="text pill">{link?.title ?? "Learn more"}</span>
+  <span class="sr-only">{link?.reference?.title}</span>
+  <span class="arrow pill"></span>
+</a>

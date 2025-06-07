@@ -1,0 +1,90 @@
+---
+import { PortableText } from "astro-portabletext";
+import ContactForm from "./ContactForm";
+import Link from "./Link.astro";
+import { AsciiText } from "./AsciiText";
+import { getLangFromUrl } from "../utils/i18n";
+import type { LinkType } from "../utils/sanity";
+
+const { data, title, contact } = Astro.props;
+const locale = getLangFromUrl(Astro.url);
+---
+
+<section
+  class={`${data?.background ? "bg-neutral-100 py-16" : ""}  max-w-screen overflow-x-clip`}
+>
+  <div
+    class={`container px-4 md:px-6 relative w-full mx-auto grid gap-6 items-center ${data?.ascii ? "md:grid-cols-2 " : ""}`}
+  >
+    {
+      data?.ascii && (
+        <div class="flex items-center justify-center overflow-visible">
+          <div class="flex max-w-60 items-center justify-center">
+            <AsciiText
+              data={data.ascii}
+              classes="text-[1.8vw] md:text-[1vw] 2xl:text-base leading-[1.05] sm:leading-[1.05] 2xl:leading-[1.05] "
+              client:only
+              delay={300}
+            />
+          </div>
+        </div>
+      )
+    }
+    <div class="py-2">
+      <div
+        class={`flex flex-col gap-6 ${data?.ascii ? "items-start" : "items-center"}`}
+      >
+        {
+          title && title !== data?.headline ? (
+            // <span class="mono">{title}</span>
+            <span />
+          ) : data?.title ? (
+            <span class="mono">{data.title}</span>
+          ) : null
+        }
+        {
+          title || contact ? (
+            <h1
+              class={`t-1 ${data?.ascii ? "max-w-2xl" : "max-w-3xl text-center"}`}
+            >
+              {data?.headline}
+            </h1>
+          ) : (
+            <h3
+              class={`t-2 ${data?.ascii ? "max-w-2xl" : "max-w-3xl text-center"}`}
+            >
+              {data?.headline}
+            </h3>
+          )
+        }
+
+        {
+          data?.text && (
+            <div
+              class={`max-w-xl text-lg lg:text-xl ${data?.ascii ? "" : "text-center"}`}
+            >
+              <PortableText value={data.text} />
+            </div>
+          )
+        }
+        {
+          data?.links && (
+            <div class="mt-2 flex gap-4">
+              {data.links?.map((link: LinkType) => (
+                <Link link={link} />
+              ))}
+            </div>
+          )
+        }
+
+        {
+          contact && (
+            <div class="mt-4 w-full">
+              <ContactForm client:load locale={locale} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

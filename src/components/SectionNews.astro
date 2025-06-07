@@ -1,0 +1,17 @@
+---
+import type { Post } from "../utils/sanity";
+import NewsCard from "./NewsCard.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="grid gap-6">
+  <div class="grid gap-x-8 md:grid-cols-2">
+    <div class="container mx-auto flex flex-col items-start gap-4 px-4 md:px-6">
+      <h3 class="t-2">{data.headline}</h3>
+    </div>
+  </div>
+  <div class="flex flex-col items-start gap-4 border-b-2 border-black">
+    {data.news.map((post: Post, _index: number) => <NewsCard data={post} />)}
+  </div>
+</section>

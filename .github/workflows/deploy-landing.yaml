@@ -1,0 +1,43 @@
+name: Deploy to Juno
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  # Triggered manually
+  workflow_dispatch:
+  # Triggered from webhooks (e.g. from Sanity)
+  repository_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-node
+
+      - name: Set Env Variables based on branch
+        run: |
+          if [[ "${{ github.ref_name }}" == "main" ]]; then
+            echo "SANITY_STUDIO_PROJECT_ID=${{ vars.SANITY_STUDIO_PROJECT_ID_MAIN }}" >> $GITHUB_ENV
+            echo "SANITY_STUDIO_DATASET=${{ vars.SANITY_STUDIO_DATASET_MAIN }}" >> $GITHUB_ENV
+          elif [[ "${{ github.ref_name }}" == "staging" ]]; then
+            echo "SANITY_STUDIO_PROJECT_ID=${{ vars.SANITY_STUDIO_PROJECT_ID_STAGING }}" >> $GITHUB_ENV
+            echo "SANITY_STUDIO_DATASET=${{ vars.SANITY_STUDIO_DATASET_STAGING }}" >> $GITHUB_ENV
+          else
+            echo "SANITY_STUDIO_PROJECT_ID=unknown" >> $GITHUB_ENV
+            echo "SANITY_STUDIO_DATASET=unknown" >> $GITHUB_ENV
+          fi
+
+      - uses: ./.github/actions/setup-juno
+
+      - name: Deploy to Juno
+        uses: junobuild/juno-action@main
+        with:
+          args: deploy --mode $JUNO_MODE
+        env:
+          JUNO_TOKEN: ${{ secrets.JUNO_TOKEN }}
+          PROJECT_PATH: apps/landing

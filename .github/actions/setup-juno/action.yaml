@@ -1,0 +1,16 @@
+name: Setup Juno
+description: Setup Juno
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set Juno mode based on branch
+      shell: bash
+      run: |
+        if [[ "${{ github.ref_name }}" == "main" ]]; then
+          echo "JUNO_MODE=production" >> $GITHUB_ENV
+        elif [[ "${{ github.ref_name }}" == "staging" ]]; then
+          echo "JUNO_MODE=staging" >> $GITHUB_ENV
+        else
+          echo "JUNO_MODE=unknown" >> $GITHUB_ENV
+        fi

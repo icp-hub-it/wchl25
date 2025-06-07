@@ -1,0 +1,16 @@
+---
+import Link from "./Link.astro";
+import { PortableText } from "astro-portabletext";
+
+const { data } = Astro.props;
+---
+
+<section class="grid">
+  <div class="container mx-auto flex flex-col items-center px-4 md:px-6">
+    <h3 class="t-2 text-center">{data.headline}</h3>
+    <div class="body mt-4 text-center">
+      <PortableText value={data.text} />
+    </div>
+    {data.link && <Link link={data.link} classes="mt-8" />}
+  </div>
+</section>
