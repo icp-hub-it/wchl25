@@ -1,10 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { sectionText } from "./sectionText";
 import React from "react";
-import { sectionCards } from "./sectionCards";
-import { sectionAscii } from "./sectionAscii";
-import { sectionRows } from "./sectionRows";
-import { sectionContact } from "./sectionContact";
 import { seo } from "./seo";
 import { EarthGlobeIcon } from "@sanity/icons";
 
@@ -79,13 +75,7 @@ export const pageType = defineType({
     defineField({
       name: "sections",
       type: "array",
-      of: [
-        sectionText,
-        sectionCards,
-        sectionAscii,
-        sectionRows,
-        sectionContact,
-      ],
+      of: [sectionText],
       hidden: ({ parent }) => parent?.template !== "default",
     }),
     {
