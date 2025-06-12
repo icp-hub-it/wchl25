@@ -8,7 +8,7 @@ import { preloadSanityFile } from "../utils/preloadSanityFile";
 
 const { locale } = Astro.params;
 const { metaTitle, metaDescription, metaImage, translations } = Astro.props;
-const settings = await getSettings(locale ?? "en");
+const settings = await getSettings("en");
 
 const currentPath = Astro.url.pathname;
 
@@ -30,13 +30,11 @@ const canonicalUrl = `https://wchl25.com${currentPath}`;
 
 const currentTranslations = translations ?? {
   en: "/en",
-  fr: "/fr",
-  de: "/de",
-  it: "/it",
 };
+console.log("settings", settings);
 
 const headerData = await Promise.all(
-  settings?.header?.map(async (item: any) => {
+  (settings?.header || []).map(async (item: any) => {
     if (item.menuItems) {
       item.menuItems = await Promise.all(
         item.menuItems.map(async (menuItem: any) => {
