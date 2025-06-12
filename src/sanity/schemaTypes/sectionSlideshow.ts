@@ -1,10 +1,10 @@
 import { defineField } from "sanity";
 import { CopyIcon } from "@sanity/icons";
 
-export const introSlideshow = defineField({
-  name: "introSlideshow",
+export const sectionSlideshow = defineField({
+  name: "sectionSlideshow",
   type: "object",
-  title: "Intro Slideshow",
+  title: "Slideshow",
   icon: CopyIcon,
   initialValue: {
     layout: "cards",

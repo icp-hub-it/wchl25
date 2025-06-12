@@ -3,9 +3,7 @@ import { sectionText } from "./sectionText";
 import React from "react";
 import { sectionCards } from "./sectionCards";
 import { sectionAscii } from "./sectionAscii";
-import { sectionHighlight } from "./sectionHighlight";
 import { sectionRows } from "./sectionRows";
-import { sectionTeam } from "./sectionTeam";
 import { sectionContact } from "./sectionContact";
 import { seo } from "./seo";
 import { EarthGlobeIcon } from "@sanity/icons";
@@ -85,9 +83,7 @@ export const pageType = defineType({
         sectionText,
         sectionCards,
         sectionAscii,
-        sectionHighlight,
         sectionRows,
-        sectionTeam,
         sectionContact,
       ],
       hidden: ({ parent }) => parent?.template !== "default",

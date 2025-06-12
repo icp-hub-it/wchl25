@@ -2,12 +2,6 @@
 import { PortableText } from "astro-portabletext";
 import SectionCardsRows from "./SectionCardsRows.astro";
 import SectionCardsDefault from "./SectionCardsDefault";
-import SectionAscii from "./SectionAscii.astro";
-import SectionTeam from "./SectionTeam.astro";
-import SectionHighlight from "./SectionHighlight.astro";
-import SectionRows from "./SectionRows.astro";
-import SectionContact from "./SectionContact.astro";
-import SectionNews from "./SectionNews.astro";
 
 const { data } = Astro.props;
 ---
@@ -19,18 +13,6 @@ const { data } = Astro.props;
         return <SectionCardsRows data={item} />;
       } else if (item._type === "sectionCards" && item.layout !== "rows") {
         return <SectionCardsDefault data={item} client:load />;
-      } else if (item._type === "sectionAscii") {
-        return <SectionAscii data={item} />;
-      } else if (item._type === "sectionTeam") {
-        return <SectionTeam data={item} />;
-      } else if (item._type === "sectionHighlight") {
-        return <SectionHighlight data={item} />;
-      } else if (item._type === "sectionContact") {
-        return <SectionContact data={item} />;
-      } else if (item._type === "sectionRows") {
-        return <SectionRows data={item} />;
-      } else if (item._type === "sectionNews") {
-        return <SectionNews data={item} />;
       } else if (item._type === "sectionText") {
         return (
           <div class="portable-text portable-text mx-auto flex max-w-3xl flex-col items-start px-4 text-lg text-pretty md:px-6 lg:text-xl">
