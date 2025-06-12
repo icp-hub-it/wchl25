@@ -27,7 +27,6 @@ export const homepageType = defineType({
         sectionSteps,
         sectionText,
         sectionTimeline,
-        sectionTimeline,
         sectionWorkshops,
       ],
     }),
