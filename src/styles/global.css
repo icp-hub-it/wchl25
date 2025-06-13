@@ -128,3 +128,12 @@ svg {
 .animate-appear {
   animation: appear 0.6s ease-in-out;
 }
+
+.steps-bg {
+  background: #000025;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 37, 1) 0%,
+    rgba(25, 13, 237, 1) 100%
+  );
+}

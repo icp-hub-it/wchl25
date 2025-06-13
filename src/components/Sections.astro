@@ -6,6 +6,7 @@ import HubMap from "./Sanity/HubMap";
 import ScrollText from "./Sanity/ScrollText";
 import Timeline from "./Sanity/Timeline";
 import Cards from "./Sanity/Cards";
+import Steps from "./Sanity/Steps";
 
 const { data } = Astro.props;
 ---
@@ -27,6 +28,18 @@ const { data } = Astro.props;
 
       if (item._type === "sectionRowCards") {
         return <Cards title={item.title} cards={item.items} client:load />;
+      }
+
+      if (item._type === "sectionSteps") {
+        return (
+          <Steps
+            title={item.title}
+            description={item.description}
+            info={item.info}
+            items={item.items}
+            client:load
+          />
+        );
       }
 
       if (item._type === "sectionCards" && item.layout === "rows") {

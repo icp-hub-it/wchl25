@@ -19,6 +19,10 @@ export const sectionSteps = defineField({
       name: "info",
       type: "string",
     },
+    {
+      name: "showSteps",
+      type: "boolean",
+    },
     defineField({
       name: "items",
       type: "array",
