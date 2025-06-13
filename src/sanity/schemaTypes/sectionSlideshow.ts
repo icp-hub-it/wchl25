@@ -27,17 +27,4 @@ export const sectionSlideshow = defineField({
       ],
     }),
   ],
-  preview: {
-    select: {
-      headline: "headline",
-      layout: "layout",
-    },
-    prepare({ headline, layout }) {
-      return {
-        title: `Cards Section (${layout === "cards" ? "Default" : "Rows"} layout)`,
-        subtitle: headline || "",
-        media: CopyIcon,
-      };
-    },
-  },
 });
