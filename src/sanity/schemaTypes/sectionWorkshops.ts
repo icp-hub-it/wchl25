@@ -24,7 +24,7 @@ export const sectionWorkshops = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
             {
               name: "kind",
@@ -51,7 +51,7 @@ export const sectionWorkshops = defineField({
                     },
                     {
                       name: "role",
-                      type: "blockContent",
+                      type: "string",
                     },
                     {
                       name: "image",
@@ -105,7 +105,7 @@ export const sectionWorkshops = defineField({
                     },
                     {
                       name: "role",
-                      type: "blockContent",
+                      type: "string",
                     },
                     {
                       name: "image",

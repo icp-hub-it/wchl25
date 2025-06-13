@@ -24,7 +24,7 @@ export const sectionPartners = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
             {
               name: "logo",

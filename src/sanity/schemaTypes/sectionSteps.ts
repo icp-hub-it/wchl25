@@ -13,11 +13,11 @@ export const sectionSteps = defineField({
     },
     {
       name: "description",
-      type: "blockContent",
+      type: "string",
     },
     {
       name: "info",
-      type: "blockContent",
+      type: "string",
     },
     defineField({
       name: "items",
@@ -32,7 +32,7 @@ export const sectionSteps = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
           ],
         },

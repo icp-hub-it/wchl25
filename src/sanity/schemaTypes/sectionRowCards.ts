@@ -24,7 +24,7 @@ export const sectionRowCards = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
           ],
         },

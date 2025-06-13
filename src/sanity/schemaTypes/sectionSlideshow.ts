@@ -20,7 +20,7 @@ export const sectionSlideshow = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
           ],
         },

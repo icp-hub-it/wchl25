@@ -28,7 +28,7 @@ export const sectionRounds = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
             {
               name: "advancement",

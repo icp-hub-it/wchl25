@@ -6,6 +6,7 @@
   --color-black: #000025;
   --color-pink: #ec1e79;
   --color-text: #ffffff;
+  --color-gray: rgba(255, 255, 255, 0.7);
 
   @keyframes aaa {
   }

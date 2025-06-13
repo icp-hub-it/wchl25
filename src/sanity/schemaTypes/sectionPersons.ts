@@ -24,7 +24,7 @@ export const sectionPersons = defineField({
             },
             {
               name: "text",
-              type: "blockContent",
+              type: "string",
             },
             {
               name: "image",
