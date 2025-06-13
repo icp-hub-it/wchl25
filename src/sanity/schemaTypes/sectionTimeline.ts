@@ -9,10 +9,5 @@ export const sectionTimeline = defineField({
   initialValue: {
     layout: "timeline",
   },
-  fields: [
-    {
-      name: "title",
-      type: "string",
-    },
-  ],
+  fields: [],
 });

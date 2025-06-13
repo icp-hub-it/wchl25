@@ -7,6 +7,7 @@ import { sectionSteps } from "./sectionSteps";
 import { sectionPersons } from "./sectionPersons";
 import { sectionWorkshops } from "./sectionWorkshops";
 import { sectionHubMap } from "./sectionHubMap";
+import { sectionScrollText } from "./sectionScrollText";
 
 export const homepageType = defineType({
   name: "homepage",
@@ -25,6 +26,7 @@ export const homepageType = defineType({
         sectionHubMap,
         sectionPersons,
         sectionRowCards,
+        sectionScrollText,
         sectionSlideshow,
         sectionSteps,
         sectionText,
