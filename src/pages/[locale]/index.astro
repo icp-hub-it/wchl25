@@ -1,11 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getHomepages, getHomepage } from "../../utils/sanity";
-import Marquee from "../../components/Marquee.astro";
 import Sections from "../../components/Sections.astro";
 import { locales } from "../../utils/i18n";
-import Link from "../../components/Link.astro";
-import { AsciiText } from "../../components/AsciiText";
 
 export async function getStaticPaths() {
   let paths: Array<{ params: { locale: string } }> = [];
@@ -23,6 +20,8 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.params;
 const homepage = await getHomepage(locale);
+
+console.log("homepage", homepage);
 ---
 
 <script>
@@ -31,50 +30,7 @@ const homepage = await getHomepage(locale);
 </script>
 
 <Layout>
-  <div class="flex flex-col gap-y-24 md:gap-y-48 2xl:gap-y-64">
-    {
-      homepage?.heroSection && (
-        <div class="overflow-hidden">
-          <section class="relative container mx-auto flex min-h-svh flex-col px-4 py-32 md:justify-center md:px-6">
-            <div class="relative z-10 flex flex-col items-start gap-4">
-              <h1 class="t-0 mb-4 max-w-xl leading-[.9] md:text-9xl">
-                {homepage.heroSection.headline}
-              </h1>
-              <h2 class="max-w-lg md:text-2xl">
-                {homepage.heroSection.subHeadline}
-              </h2>
-              {homepage.heroSection?.link && (
-                <Link link={homepage.heroSection.link} />
-              )}
-            </div>
-            {homepage.heroSection?.ascii && (
-              <div class="absolute right-0 bottom-0 flex h-auto max-h-screen w-2/3 max-w-none items-end justify-center">
-                <div class="text-primary text-center font-mono text-[1.5vw] leading-[1.05] whitespace-nowrap sm:leading-[1.05] md:text-[1vw] xl:text-sm xl:leading-[1.05]">
-                  {/* <code class=""> {homepage.heroSection?.ascii?.code}</code> */}
-                  <AsciiText
-                    data={homepage.heroSection?.ascii}
-                    classes="text-[1.8vw] md:text-[1vw] 2xl:text-base leading-[1.05] sm:leading-[1.05] 2xl:leading-[1.05] "
-                    client:only
-                    delay={200}
-                  />
-                </div>
-              </div>
-            )}
-          </section>
-
-          <Marquee className="bg-primary text-white items-center">
-            <span class="mono py-1">SWISS SUBNET</span>
-            <span class="plus bg-white" />
-            <span class="mono py-1">SUBNET SUISSE</span>
-            <span class="plus bg-white" />
-            <span class="mono py-1">SCHWEIZER SUBNET</span>
-            <span class="plus bg-white" />
-            <span class="mono py-1">SUBNET SVIZZERA</span>
-            <span class="plus bg-white" />
-          </Marquee>
-        </div>
-      )
-    }
+  <div class="">
     {homepage?.sections && <Sections data={homepage.sections} />}
   </div>
 </Layout>
