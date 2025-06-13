@@ -3,7 +3,8 @@
 @theme {
   --color-primary: #040225;
   --color-page: #040225;
-  --color-black: #1d1d1d;
+  --color-black: #000025;
+  --color-pink: #ec1e79;
 
   @keyframes marquee {
     0% {
@@ -51,7 +52,14 @@
 @font-face {
   font-family: "Circular XX";
   src: url("/CircularXX-Book.otf") format("opentype");
-  font-weight: bold;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circular XX";
+  src: url("/CircularXX-Bold.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -72,4 +80,34 @@ body {
   min-width: 100vw;
   overflow-x: hidden;
   padding: 0;
+}
+
+svg {
+  display: inline;
+}
+
+.home-bg {
+  background-image: url("/homepage-bg.webp");
+}
+
+.font-pp {
+  font-family: "PP Monument Extended", sans-serif;
+}
+
+.font-std {
+  font-family: "Circular Std", sans-serif;
+}
+
+.font-text {
+  font-family: "Circular XX", sans-serif;
+}
+
+.font-halo {
+  font-family: "Halo Grotesk", sans-serif;
+}
+
+.blur-bar {
+  background: rgba(25, 13, 237, 0.03); /* semitrasparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* per Safari */
 }
