@@ -1,11 +1,11 @@
 import { defineField } from "sanity";
-import { CopyIcon } from "@sanity/icons";
+import { ImagesIcon } from "@sanity/icons";
 
 export const sectionSlideshow = defineField({
   name: "sectionSlideshow",
   type: "object",
   title: "Slideshow",
-  icon: CopyIcon,
+  icon: ImagesIcon,
   fields: [
     defineField({
       name: "items",
@@ -27,4 +27,12 @@ export const sectionSlideshow = defineField({
       ],
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: `Slideshow Section`,
+        media: ImagesIcon,
+      };
+    },
+  },
 });

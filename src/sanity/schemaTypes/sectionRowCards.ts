@@ -32,14 +32,9 @@ export const sectionRowCards = defineField({
     }),
   ],
   preview: {
-    select: {
-      headline: "headline",
-      layout: "layout",
-    },
-    prepare({ headline, layout }) {
+    prepare() {
       return {
-        title: `Cards Section (${layout === "cards" ? "Default" : "Rows"} layout)`,
-        subtitle: headline || "",
+        title: `Cards Section`,
         media: CopyIcon,
       };
     },
