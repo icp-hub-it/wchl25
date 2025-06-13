@@ -3,7 +3,6 @@ import { PortableText } from "@portabletext/react";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "./Link.astro";
-import { AsciiText } from "./AsciiText";
 import type { PortableTextBlock } from "sanity";
 
 interface Item {
@@ -91,16 +90,6 @@ const SectionCardsDefault: React.FC<SectionProps> = ({ data }) => {
                         : "bg-neutral-200/30"
                     } flex-[0_0_100%] sm:flex-[0_0_50%] ${data.text ? "md:flex-[0_0_33.33%]" : "lg:flex-[0_0_25%]"}`}
                   >
-                    {item.iconText && (
-                      <div className="code max-w-32 text-[.6rem] leading-[1]">
-                        {/* <code className="">{item.iconText?.code}</code> */}
-                        <AsciiText
-                          classes="text-[.6rem] leading-[1]"
-                          data={item.iconText}
-                          delay={100}
-                        />
-                      </div>
-                    )}
                     <div
                       className={`${item.iconText ? "" : "flex flex-col justify-between gap-32"}`}
                     >

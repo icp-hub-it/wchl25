@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getHomepages, getHomepage } from "../../utils/sanity";
 import Sections from "../../components/Sections.astro";
 import { locales } from "../../utils/i18n";
+import Intro from "../../components/Intro";
 
 export async function getStaticPaths() {
   let paths: Array<{ params: { locale: string } }> = [];
@@ -31,6 +32,7 @@ console.log("homepage", homepage);
 
 <Layout>
   <div class="">
+    <Intro />
     {homepage?.sections && <Sections data={homepage.sections} />}
   </div>
 </Layout>

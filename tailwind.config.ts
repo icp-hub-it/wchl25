@@ -13,6 +13,9 @@ const config: Config = {
       "3xl": "1600px",
     },
     extend: {
+      backgroundImage: {
+        home: 'url("/homepage-bg.webp")',
+      },
       colors: {
         brand: "hsl(210, 9%, 21%)",
         brandAlt: "hsl(212, 9%, 16%)",
