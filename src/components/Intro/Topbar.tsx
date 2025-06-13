@@ -3,16 +3,16 @@ import * as FiIcon from "react-icons/fi";
 import Icp from "./Icp";
 
 const Topbar = () => (
-  <div className="flex items-center justify-between p-4">
-    <div className="flex items-center gap-2">
+  <div className="flex flex-row items-center justify-between p-4">
+    <div className="flex gap-2">
       <Icp width={86} height={40} />
-      <div className="font-pp text-xl text-white uppercase">
+      <div className="font-pp text-xs text-white uppercase sm:text-xl">
         <span>Internet</span>
         <br />
         <span>Computer</span>
       </div>
     </div>
-    <div className="flex items-center gap-4 p-4">
+    <div className="hidden items-center justify-between gap-4 p-4 sm:flex sm:justify-end">
       <a
         className="font-text block rounded-full bg-white/20 px-4 py-2 align-middle text-white hover:bg-white/10 hover:underline"
         href="/faq"

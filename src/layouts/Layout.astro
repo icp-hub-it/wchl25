@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { Header } from "../components/Header";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 import { getSettings } from "../utils/sanity";
@@ -54,11 +53,10 @@ console.log("settings", settings);
     <ClientRouter />
   </head>
   <body class="bg-page relative overflow-x-clip">
-    <Header client:only />
     <main class="animate-appear min-h-screen">
       <slot />
-      <Footer data={settings?.footer} />
     </main>
+    <Footer data={settings?.footer} />
   </body>
 </html>
 

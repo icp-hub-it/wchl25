@@ -35,19 +35,31 @@ const Countdown = () => {
   }, [targetDate]);
 
   return (
-    <div className="blur-bar fixed right-0 bottom-4 left-0 z-50 w-screen px-20 py-8">
-      <div className="flex items-center justify-between">
-        <span className="font-pp block text-3xl text-white">
+    <div className="blur-bar fixed right-0 bottom-4 left-0 z-50 w-screen px-20 py-4 sm:py-8">
+      <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-between">
+        <span className="font-pp block text-center text-xl text-white sm:text-left sm:text-3xl">
           Registration Opens
         </span>
         {timeLeft.days >= 0 && (
-          <div className="font-pp text-2xl text-white">
-            <span className="text-3xl font-bold">{timeLeft.days}</span>
-            <span className="font-text text-lg uppercase">days </span>
-            <span className="text-3xl font-bold">{timeLeft.hours}</span>
-            <span className="font-text text-lg uppercase">hours </span>
-            <span className="text-3xl font-bold">{timeLeft.minutes}</span>
-            <span className="font-text text-lg uppercase">minutes </span>
+          <div className="font-pp text-center text-xl text-white sm:text-left sm:text-2xl">
+            <span className="text-xl font-bold sm:text-3xl">
+              {timeLeft.days}
+            </span>
+            <span className="font-text text-sm uppercase sm:text-lg">
+              days{" "}
+            </span>
+            <span className="text-xl font-bold sm:text-3xl">
+              {timeLeft.hours}
+            </span>
+            <span className="font-text text-sm uppercase sm:text-lg">
+              hours{" "}
+            </span>
+            <span className="text-xl font-bold sm:text-3xl">
+              {timeLeft.minutes}
+            </span>
+            <span className="font-text text-sm uppercase sm:text-lg">
+              minutes{" "}
+            </span>
           </div>
         )}
         <div>
@@ -55,7 +67,7 @@ const Countdown = () => {
             className="font-text bg-pink block rounded-full px-4 py-3 font-bold text-white hover:underline"
             href="/join"
           >
-            <span className="mr-2 p-2 text-2xl text-white">
+            <span className="text-md mr-2 p-2 text-white sm:text-2xl">
               <FiIcon.FiArrowRight size={24} className="mr-2 inline-block" />
               Join the League
             </span>
