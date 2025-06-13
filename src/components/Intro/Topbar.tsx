@@ -15,7 +15,7 @@ const Topbar = () => (
     <div className="hidden items-center justify-between gap-4 p-4 sm:flex sm:justify-end">
       <a
         className="font-text block rounded-full bg-white/20 px-4 py-2 align-middle text-white hover:bg-white/10 hover:underline"
-        href="/faq"
+        href="#faq"
       >
         FAQs
       </a>
