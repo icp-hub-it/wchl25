@@ -8,6 +8,7 @@ import { sectionPersons } from "./sectionPersons";
 import { sectionWorkshops } from "./sectionWorkshops";
 import { sectionHubMap } from "./sectionHubMap";
 import { sectionScrollText } from "./sectionScrollText";
+import { sectionFaq } from "./sectionFaq";
 
 export const homepageType = defineType({
   name: "homepage",
@@ -23,6 +24,7 @@ export const homepageType = defineType({
       name: "sections",
       type: "array",
       of: [
+        sectionFaq,
         sectionHubMap,
         sectionPersons,
         sectionRowCards,
