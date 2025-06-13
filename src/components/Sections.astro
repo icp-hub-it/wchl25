@@ -3,15 +3,25 @@ import { PortableText } from "astro-portabletext";
 import SectionCardsRows from "./SectionCardsRows.astro";
 import SectionCardsDefault from "./SectionCardsDefault";
 import HubMap from "./Sanity/HubMap";
+import ScrollText from "./Sanity/ScrollText";
+import Timeline from "./Sanity/Timeline";
 
 const { data } = Astro.props;
 ---
 
-<div class="mx-auto w-full sm:w-[80%]">
+<div class="flex flex-col gap-16 py-20">
   {
     data?.map((item: any) => {
       if (item._type === "sectionHubMap") {
         return <HubMap title={item.title} client:load />;
+      }
+
+      if (item._type === "sectionScrollText") {
+        return <ScrollText text={item.text} />;
+      }
+
+      if (item._type === "sectionTimeline") {
+        return <Timeline />;
       }
 
       if (item._type === "sectionCards" && item.layout === "rows") {

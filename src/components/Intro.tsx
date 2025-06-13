@@ -15,27 +15,27 @@ const Intro = () => (
 const IntroDesktop = () => (
   <div className="hidden flex-col px-4 py-8 sm:flex sm:px-20">
     <div className="flex justify-start">
-      <span className="font-halo w-fit bg-black p-3 text-[120px] leading-none text-white uppercase">
+      <span className="font-halo w-fit bg-black p-3 text-[120px] leading-[0.9] text-white uppercase">
         World
       </span>
     </div>
     <div className="flex justify-start">
-      <span className="font-halo w-fit bg-black p-3 text-[120px] leading-none text-white uppercase">
+      <span className="font-halo w-fit bg-black p-3 text-[120px] leading-[0.9] text-white uppercase">
         Computer
       </span>
     </div>
     <div className="flex justify-end">
-      <span className="font-halo w-fit bg-black p-3 text-right text-[120px] leading-none text-white uppercase">
+      <span className="font-halo w-fit bg-black p-3 text-right text-[120px] leading-[0.9] text-white uppercase">
         Hacker
       </span>
     </div>
     <div className="flex justify-end">
-      <span className="font-halo w-fit bg-black p-3 text-right text-[120px] leading-none text-white uppercase">
+      <span className="font-halo w-fit bg-black p-3 text-right text-[120px] leading-[0.9] text-white uppercase">
         League
       </span>
     </div>
     <div className="flex items-center justify-between align-middle">
-      <span className="font-halo w-fit bg-black p-3 text-right text-[70px] leading-none text-white uppercase">
+      <span className="font-halo w-fit bg-black p-3 text-right text-[70px] leading-[0.9] text-white uppercase">
         July - October <Globe width={70} height={40} /> 2025
       </span>
       <div className="bg-black p-3 text-[24px]">
@@ -43,7 +43,7 @@ const IntroDesktop = () => (
           In collaboration with
         </span>
         <br />
-        <span className="font-text w-fit text-right text-xl leading-none text-white uppercase sm:text-[24px]">
+        <span className="font-text w-fit text-right text-xl leading-[0.9] text-white uppercase sm:text-[24px]">
           <Icp width={48} height={20} /> ICP HUBS NETWORK
         </span>
       </div>

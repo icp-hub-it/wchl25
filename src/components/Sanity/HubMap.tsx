@@ -14,6 +14,7 @@ const HubMap = ({ title }: Props) => (
         width={1280}
         height={720}
         className="h-auto w-full"
+        loading="lazy"
       />
     </div>
   </div>
