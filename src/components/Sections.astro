@@ -7,6 +7,7 @@ import ScrollText from "./Sanity/ScrollText";
 import Timeline from "./Sanity/Timeline";
 import Cards from "./Sanity/Cards";
 import Steps from "./Sanity/Steps";
+import Faq from "./Sanity/Faq";
 
 const { data } = Astro.props;
 ---
@@ -41,6 +42,10 @@ const { data } = Astro.props;
             client:load
           />
         );
+      }
+
+      if (item._type === "sectionFaq") {
+        return <Faq title={item.title} questions={item.items} client:load />;
       }
 
       if (item._type === "sectionCards" && item.layout === "rows") {
