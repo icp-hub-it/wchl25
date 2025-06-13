@@ -2,13 +2,18 @@
 import { PortableText } from "astro-portabletext";
 import SectionCardsRows from "./SectionCardsRows.astro";
 import SectionCardsDefault from "./SectionCardsDefault";
+import HubMap from "./Sanity/HubMap";
 
 const { data } = Astro.props;
 ---
 
-<>
+<div class="mx-auto w-full sm:w-[80%]">
   {
     data?.map((item: any) => {
+      if (item._type === "sectionHubMap") {
+        return <HubMap title={item.title} client:load />;
+      }
+
       if (item._type === "sectionCards" && item.layout === "rows") {
         return <SectionCardsRows data={item} />;
       } else if (item._type === "sectionCards" && item.layout !== "rows") {
@@ -22,4 +27,4 @@ const { data } = Astro.props;
       }
     })
   }
-</>
+</div>
