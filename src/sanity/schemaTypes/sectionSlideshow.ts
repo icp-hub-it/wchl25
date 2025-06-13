@@ -6,9 +6,6 @@ export const sectionSlideshow = defineField({
   type: "object",
   title: "Slideshow",
   icon: CopyIcon,
-  initialValue: {
-    layout: "cards",
-  },
   fields: [
     defineField({
       name: "items",

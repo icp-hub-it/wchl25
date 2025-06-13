@@ -6,9 +6,6 @@ export const sectionSteps = defineField({
   type: "object",
   title: "Steps",
   icon: Icons.TaskIcon,
-  initialValue: {
-    layout: "cards",
-  },
   fields: [
     {
       name: "title",

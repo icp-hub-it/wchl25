@@ -6,9 +6,6 @@ export const sectionTimeline = defineField({
   type: "object",
   title: "Timeline",
   icon: Icons.CalendarIcon,
-  initialValue: {
-    layout: "timeline",
-  },
   fields: [
     {
       name: "dummy",

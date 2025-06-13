@@ -6,9 +6,6 @@ export const sectionRounds = defineField({
   type: "object",
   title: "Rounds",
   icon: SanityIcon.RocketIcon,
-  initialValue: {
-    layout: "cards",
-  },
   fields: [
     {
       name: "title",

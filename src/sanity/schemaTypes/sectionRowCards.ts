@@ -6,9 +6,6 @@ export const sectionRowCards = defineField({
   type: "object",
   title: "Row Cards",
   icon: CopyIcon,
-  initialValue: {
-    layout: "cards",
-  },
   fields: [
     {
       name: "title",

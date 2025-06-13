@@ -6,9 +6,6 @@ export const sectionPartners = defineField({
   type: "object",
   title: "Partners",
   icon: SanityIcon.HeartFilledIcon,
-  initialValue: {
-    layout: "cards",
-  },
   fields: [
     {
       name: "title",
