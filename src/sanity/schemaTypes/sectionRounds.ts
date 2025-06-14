@@ -43,7 +43,7 @@ export const sectionRounds = defineField({
               type: "string",
             },
             {
-              name: "period",
+              name: "duration",
               type: "string",
             },
           ],
