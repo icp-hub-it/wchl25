@@ -13,7 +13,7 @@ export const sectionRounds = defineField({
     },
     {
       name: "description",
-      type: "blockContent",
+      type: "string",
     },
     defineField({
       name: "items",
@@ -27,7 +27,7 @@ export const sectionRounds = defineField({
               type: "string",
             },
             {
-              name: "text",
+              name: "description",
               type: "string",
             },
             {
@@ -39,7 +39,11 @@ export const sectionRounds = defineField({
               type: "string",
             },
             {
-              name: "deadline",
+              name: "month",
+              type: "string",
+            },
+            {
+              name: "period",
               type: "string",
             },
           ],
