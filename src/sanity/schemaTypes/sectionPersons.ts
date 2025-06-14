@@ -23,7 +23,11 @@ export const sectionPersons = defineField({
               type: "string",
             },
             {
-              name: "text",
+              name: "role",
+              type: "string",
+            },
+            {
+              name: "company",
               type: "string",
             },
             {
