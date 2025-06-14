@@ -30,6 +30,10 @@ export const sectionPartners = defineField({
               name: "logo",
               type: "image",
             },
+            {
+              name: "link",
+              type: "url",
+            },
           ],
         },
       ],
