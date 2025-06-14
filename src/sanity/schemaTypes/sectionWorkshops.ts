@@ -30,7 +30,11 @@ export const sectionWorkshops = defineField({
               name: "kind",
               type: "string",
               options: {
-                list: [{ title: "Tech Workshop", value: "tech-workshop" }],
+                list: [
+                  { title: "Tech Workshop", value: "tech" },
+                  { title: "Community Workshop", value: "community" },
+                  { title: "Business Workshop", value: "business" },
+                ],
                 layout: "radio",
               },
             },
@@ -51,6 +55,10 @@ export const sectionWorkshops = defineField({
                     },
                     {
                       name: "role",
+                      type: "string",
+                    },
+                    {
+                      name: "company",
                       type: "string",
                     },
                     {
@@ -89,7 +97,7 @@ export const sectionWorkshops = defineField({
               },
             },
             {
-              name: "link",
+              name: "website",
               type: "url",
             },
             {

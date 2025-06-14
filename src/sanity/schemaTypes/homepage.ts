@@ -10,6 +10,7 @@ import { sectionHubMap } from "./sectionHubMap";
 import { sectionScrollText } from "./sectionScrollText";
 import { sectionFaq } from "./sectionFaq";
 import { sectionPartners } from "./sectionPartners";
+import { sectionRounds } from "./sectionRounds";
 
 export const homepageType = defineType({
   name: "homepage",
@@ -29,6 +30,7 @@ export const homepageType = defineType({
         sectionHubMap,
         sectionPartners,
         sectionPersons,
+        sectionRounds,
         sectionRowCards,
         sectionScrollText,
         sectionSlideshow,
