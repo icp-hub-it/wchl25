@@ -1,7 +1,4 @@
 ---
-import { PortableText } from "astro-portabletext";
-import SectionCardsRows from "./SectionCardsRows.astro";
-import SectionCardsDefault from "./SectionCardsDefault";
 import HubMap from "./Sanity/HubMap";
 import ScrollText from "./Sanity/ScrollText";
 import Timeline from "./Sanity/Timeline";
@@ -87,18 +84,6 @@ const { data } = Astro.props;
             resources={item.resources}
             client:load
           />
-        );
-      }
-
-      if (item._type === "sectionCards" && item.layout === "rows") {
-        return <SectionCardsRows data={item} />;
-      } else if (item._type === "sectionCards" && item.layout !== "rows") {
-        return <SectionCardsDefault data={item} client:load />;
-      } else if (item._type === "sectionText") {
-        return (
-          <div class="portable-text portable-text mx-auto flex max-w-3xl flex-col items-start px-4 text-lg text-pretty md:px-6 lg:text-xl">
-            <PortableText value={item.body} />
-          </div>
         );
       }
     })
