@@ -10,11 +10,12 @@ import Steps from "./Sanity/Steps";
 import Faq from "./Sanity/Faq";
 import Persons from "./Sanity/Persons";
 import Partners from "./Sanity/Partners";
+import WorkshopsAndResources from "./Sanity/Workshops";
 
 const { data } = Astro.props;
 ---
 
-<div class="flex flex-col gap-16 py-20">
+<div class="flex flex-col gap-16 py-20 sm:gap-32">
   {
     data?.map((item: any) => {
       if (item._type === "sectionHubMap") {
@@ -59,6 +60,17 @@ const { data } = Astro.props;
 
       if (item._type === "sectionFaq") {
         return <Faq title={item.title} questions={item.items} client:load />;
+      }
+
+      if (item._type === "sectionWorkshops") {
+        return (
+          <WorkshopsAndResources
+            title={item.title}
+            workshops={item.workshops}
+            resources={item.resources}
+            client:load
+          />
+        );
       }
 
       if (item._type === "sectionCards" && item.layout === "rows") {

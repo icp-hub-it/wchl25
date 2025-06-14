@@ -17,8 +17,10 @@ const Steps = ({ title, showSteps, description, info, items }: Props) => (
     <div className="steps-bg relative flex-1">
       <div className="flex h-full flex-col justify-between gap-8 px-4 pb-8">
         <div>
-          <h2 className="font-pp text-2xl font-bold">{title}</h2>
-          <p className="text-lg">{description}</p>
+          <h2 className="font-pp mb-4 text-2xl font-bold uppercase sm:text-[60px]">
+            {title}
+          </h2>
+          <p className="text-2xl font-bold">{description}</p>
         </div>
         <div>
           <div>

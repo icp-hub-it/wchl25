@@ -41,7 +41,7 @@ const Persons = ({ title, persons }: Props) => {
 
   return (
     <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-      <h2 className="font-pp mb-4 text-3xl font-bold sm:text-[60px]">
+      <h2 className="font-pp mb-4 text-3xl font-bold uppercase sm:text-[60px]">
         {title}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
