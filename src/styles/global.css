@@ -115,7 +115,7 @@ svg {
 
 .blur-bar {
   background: rgba(25, 13, 237, 0.03); /* semitrasparente */
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px) !important; /* keep */
   -webkit-backdrop-filter: blur(12px); /* per Safari */
 }
 
