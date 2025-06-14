@@ -53,7 +53,7 @@ const Person = ({ name, role, company, image }: PersonProps) => {
           loading="lazy"
         />
       </div>
-      <h3 className="font-pp text-xl font-bold">{name}</h3>
+      <h3 className="font-pp mb-2 text-xl font-bold">{name}</h3>
       <p className="text-gray text-sm">{role}</p>
       <p className="text-gray text-sm">{company}</p>
     </div>
