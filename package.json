@@ -2,6 +2,11 @@
   "name": "wchl25",
   "type": "module",
   "version": "0.0.1",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not op_mini all"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
