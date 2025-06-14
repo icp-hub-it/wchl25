@@ -16,7 +16,7 @@ interface RoundProps {
 const Rounds = ({ title, description, rounds }: RoundsProps) => (
   <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
     <div className="flex flex-col justify-between gap-8 sm:flex-row sm:gap-0">
-      <h2 className="font-pp mb-4 flex-8/12 text-3xl font-bold uppercase sm:text-[60px]">
+      <h2 className="font-pp mb-4 flex-8/12 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
         {title}
       </h2>
       <p className="flex-4/12 px-4 text-xl">{description}</p>

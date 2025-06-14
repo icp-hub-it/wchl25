@@ -7,9 +7,11 @@ const Topbar = () => (
     <div className="flex gap-2">
       <Icp width={86} height={40} />
       <div className="font-pp text-xs text-white uppercase sm:text-xl">
-        <span>Internet</span>
-        <br />
-        <span>Computer</span>
+        <h1>
+          <span>Internet</span>
+          <br />
+          <span>Computer</span>
+        </h1>
       </div>
     </div>
     <div className="hidden items-center justify-between gap-4 p-4 sm:flex sm:justify-end">

@@ -59,7 +59,7 @@
     "astro-preload": "^1.1.2",
     "embla-carousel": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
-    "framer-motion": "^12.0.8",
+    "framer-motion": "^12.16.0",
     "groq": "^3.70.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

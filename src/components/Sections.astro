@@ -12,6 +12,7 @@ import Persons from "./Sanity/Persons";
 import Partners from "./Sanity/Partners";
 import Rounds from "./Sanity/Rounds";
 import WorkshopsAndResources from "./Sanity/Workshops";
+import Slideshow from "./Sanity/Slideshow";
 
 const { data } = Astro.props;
 ---
@@ -72,6 +73,10 @@ const { data } = Astro.props;
             client:load
           />
         );
+      }
+
+      if (item._type === "sectionSlideshow") {
+        return <Slideshow cards={item.items} client:load />;
       }
 
       if (item._type === "sectionWorkshops") {

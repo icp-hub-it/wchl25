@@ -15,7 +15,7 @@ interface Props {
 
 const Cards = ({ title, cards }: Props) => (
   <div className="mx-auto flex w-full flex-col gap-4 sm:w-[80%]">
-    <h2 className="font-pp w-full text-2xl font-bold uppercase sm:w-3/4 sm:text-[60px]">
+    <h2 className="font-pp w-full px-4 text-2xl font-bold uppercase sm:w-3/4 sm:px-0 sm:text-[60px]">
       {title}
     </h2>
     <div className="grid grid-cols-1 sm:grid-cols-4">

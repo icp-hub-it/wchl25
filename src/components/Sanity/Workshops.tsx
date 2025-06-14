@@ -72,7 +72,7 @@ const WorkshopsAndResources = ({
   resources,
 }: WorkshopAndResourcesProps) => (
   <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-    <h2 className="font-pp mb-4 text-3xl font-bold uppercase sm:text-[60px]">
+    <h2 className="font-pp mb-4 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
       {title}
     </h2>
     <Workshops workshops={workshops} />
