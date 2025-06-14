@@ -35,7 +35,7 @@ const Countdown = () => {
   }, [targetDate]);
 
   return (
-    <div className="blur-bar fixed right-0 bottom-4 left-0 z-50 w-screen px-20 py-4 sm:py-8">
+    <div className="blur-bar fixed right-0 bottom-30 left-0 z-50 w-screen px-20 py-4 sm:py-8">
       <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-between">
         <span className="font-pp block text-center text-xl text-white sm:text-left sm:text-3xl">
           Registration Opens

@@ -10,6 +10,7 @@ import Steps from "./Sanity/Steps";
 import Faq from "./Sanity/Faq";
 import Persons from "./Sanity/Persons";
 import Partners from "./Sanity/Partners";
+import Rounds from "./Sanity/Rounds";
 import WorkshopsAndResources from "./Sanity/Workshops";
 
 const { data } = Astro.props;
@@ -60,6 +61,17 @@ const { data } = Astro.props;
 
       if (item._type === "sectionFaq") {
         return <Faq title={item.title} questions={item.items} client:load />;
+      }
+
+      if (item._type === "sectionRounds") {
+        return (
+          <Rounds
+            title={item.title}
+            description={item.description}
+            rounds={item.items}
+            client:load
+          />
+        );
       }
 
       if (item._type === "sectionWorkshops") {
