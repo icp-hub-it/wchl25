@@ -12,7 +12,7 @@ interface Props {
 const Faq = ({ title, questions }: Props) => {
   return (
     <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-      <h2 className="font-pp text-2xl font-bold sm:text-[40px]">{title}</h2>
+      <h2 className="font-pp text-2xl font-bold sm:text-[60px]">{title}</h2>
       <div className="flex flex-col">
         {questions.map((item, index) => (
           <Accordion key={index} title={item.question} content={item.answer} />

@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Steps = ({ title, showSteps, description, info, items }: Props) => (
-  <div className="flex h-max flex-col items-stretch justify-between gap-8 sm:flex-row">
+  <div className="mx-auto flex h-max w-full flex-col items-stretch justify-between gap-8 sm:w-[80%] sm:flex-row">
     <div className="steps-bg relative flex-1">
       <div className="flex h-full flex-col justify-between gap-8 px-4 pb-8">
         <div>

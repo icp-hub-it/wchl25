@@ -9,6 +9,7 @@ import { sectionWorkshops } from "./sectionWorkshops";
 import { sectionHubMap } from "./sectionHubMap";
 import { sectionScrollText } from "./sectionScrollText";
 import { sectionFaq } from "./sectionFaq";
+import { sectionPartners } from "./sectionPartners";
 
 export const homepageType = defineType({
   name: "homepage",
@@ -26,6 +27,7 @@ export const homepageType = defineType({
       of: [
         sectionFaq,
         sectionHubMap,
+        sectionPartners,
         sectionPersons,
         sectionRowCards,
         sectionScrollText,
