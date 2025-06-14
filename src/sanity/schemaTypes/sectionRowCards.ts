@@ -32,9 +32,12 @@ export const sectionRowCards = defineField({
     }),
   ],
   preview: {
-    prepare() {
+    select: {
+      title: "title",
+    },
+    prepare({ title }) {
       return {
-        title: `Cards Section`,
+        title: `Cards Section : ${title || "Untitled"}`,
         media: CopyIcon,
       };
     },

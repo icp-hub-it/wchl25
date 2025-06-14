@@ -9,7 +9,7 @@ interface Props {
   title: string;
   cards: {
     title: string;
-    text: any;
+    text: string;
   }[];
 }
 
@@ -32,7 +32,7 @@ const Card = ({
   index,
 }: {
   title: string;
-  text: any;
+  text: string;
   index: number;
 }) => (
   <div
