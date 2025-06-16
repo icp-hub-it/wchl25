@@ -121,10 +121,10 @@ svg {
 }
 
 .animate-marquee {
-  animation: marquee 70s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 .animate-marquee2 {
-  animation: marquee2 70s linear infinite;
+  animation: marquee2 30s linear infinite;
 }
 
 .animate-appear {
