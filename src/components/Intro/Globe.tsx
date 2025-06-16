@@ -1,15 +1,15 @@
 const Globe = ({
-  width,
-  height,
+  width = 72,
+  height = 41,
   classes,
 }: {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   classes?: string;
 }) => (
   <svg
-    width="72"
-    height="41"
+    width={width}
+    height={height}
     viewBox="0 0 72 41"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

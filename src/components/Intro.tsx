@@ -1,5 +1,4 @@
 import Globe from "./Intro/Globe";
-import Icp from "./Intro/Icp";
 import Topbar from "./Intro/Topbar";
 import Countdown from "./Countdown";
 
