@@ -10,12 +10,7 @@ const Footer = () => (
       </div>
       <div className="flex flex-col items-center justify-between gap-16 sm:flex-row">
         <div className="flex gap-4">
-          <Icp width={86} height={60} />
-          <div className="font-pp text-xs text-white uppercase sm:text-xl">
-            <span className="leading-[0.9]">Internet</span>
-            <br />
-            <span className="leading-[0.9]">Computer</span>
-          </div>
+          <Icp width={200} height={60} />
         </div>
         <div className="flex flex-col justify-end">
           <div>

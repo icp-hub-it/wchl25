@@ -13,8 +13,8 @@ interface Props {
 }
 
 const Steps = ({ title, showSteps, description, info, items }: Props) => (
-  <div className="container mx-auto flex h-max w-full flex-col items-stretch justify-between gap-4 sm:flex-row">
-    <div className="steps-bg relative flex-1 overflow-hidden">
+  <div className="container mx-auto grid h-max w-full gap-x-4 md:grid-cols-2">
+    <div className="steps-bg relative overflow-hidden">
       <div className="flex h-full flex-col justify-between gap-8 px-4 pb-8">
         <div>
           <h2 className="font-pp mb-4 text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
@@ -33,7 +33,7 @@ const Steps = ({ title, showSteps, description, info, items }: Props) => (
         <Globe width={640} height={420} />
       </div>
     </div>
-    <div className="h-full flex-1 flex-col">
+    <div className="h-full flex-1 flex-col px-4 md:px-0">
       {items.map((item, index) => (
         <Step
           key={index}

@@ -47,7 +47,7 @@ const Countdown = ({
   }, [targetDate]);
 
   return (
-    <div className="relative right-0 bottom-0 left-0 z-50 flex w-full flex-col items-center md:fixed md:p-4">
+    <div className="relative right-0 bottom-0 left-0 z-5 flex w-full flex-col items-center md:fixed md:p-4">
       <div className="flex w-auto w-full flex-col items-center justify-center gap-2 px-6 py-6 backdrop-blur-xl md:w-auto md:flex-row md:justify-between md:gap-12 md:rounded-full md:px-3 md:py-3">
         <span className="font-pp block pl-4 text-center text-xl text-white sm:text-left sm:text-2xl">
           {countdownText}

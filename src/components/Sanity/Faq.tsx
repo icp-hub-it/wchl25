@@ -11,8 +11,8 @@ interface Props {
 
 const Faq = ({ title, questions }: Props) => {
   return (
-    <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-      <h2 className="font-pp px-4 text-2xl font-bold sm:px-0 sm:text-[60px]">
+    <div className="container mx-auto flex w-full flex-col gap-8 px-4">
+      <h2 className="font-pp px-4 text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
         {title}
       </h2>
       <div className="flex flex-col">
@@ -41,7 +41,7 @@ const Accordion = ({ title, content }: { title: string; content: string }) => {
         onClick={toggleAccordion}
       >
         <span className="font-pp text-2xl font-bold">{title}</span>
-        <div className="hover:bg-pink rounded-full border border-gray-700 p-4">
+        <div className="hover:bg-pink rounded-full border border-gray-700 bg-white/10 p-4 transition-all">
           {isOpen ? (
             <Icon.FiMinus
               className="text-brandGray hover:text-brandAlt"

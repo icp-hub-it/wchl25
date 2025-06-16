@@ -40,8 +40,8 @@ const Persons = ({ title, persons }: Props) => {
   }, [pages, persons.length]);
 
   return (
-    <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-      <h2 className="font-pp mb-4 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
+    <div className="container mx-auto flex w-full flex-col gap-8 px-4">
+      <h2 className="font-pp text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
         {title}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
@@ -62,14 +62,12 @@ const Persons = ({ title, persons }: Props) => {
 
 const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
   <div className="flex border-collapse flex-col justify-between border border-gray-700 p-8">
-    <h3 className="font-pp mb-2 text-2xl font-bold sm:text-[28px]">
-      View more
-    </h3>
+    <h3 className="font-pp mb-2 text-2xl font-bold">View more</h3>
     <button
       onClick={onClick}
-      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent p-10 text-white hover:border-0"
+      className="hover:bg-pink w-fit cursor-pointer rounded-full border border-gray-700 bg-transparent bg-white/10 p-8 text-white transition-all hover:border-transparent"
     >
-      <FiIcons.FiPlus size={40} className="inline-block text-[40px]" />
+      <FiIcons.FiPlus size={28} className="inline-block" />
     </button>
   </div>
 );
@@ -80,20 +78,20 @@ const Person = ({ name, role, company, image }: PersonProps) => {
   }, [image]);
 
   return (
-    <div className="flex border-collapse flex-col border border-gray-700 p-8">
+    <div className="flex border-collapse flex-col border border-gray-700 p-4 md:p-6">
       <div>
         <img
           src={imageUrl}
           alt={name}
-          className="mb-12 h-[144px] w-[144px] rounded-full"
+          className="mb-4 h-20 w-20 rounded-full md:h-28 md:w-28"
           width={144}
           height={144}
           loading="lazy"
         />
       </div>
-      <h3 className="font-pp mb-2 text-2xl font-bold sm:text-[28px]">{name}</h3>
-      <p className="text-gray text-sm">{role}</p>
-      <p className="text-gray text-sm">{company}</p>
+      <h3 className="font-pp mb-2 text-2xl font-bold">{name}</h3>
+      <p className="text-gray">{role}</p>
+      <p className="text-gray">{company}</p>
     </div>
   );
 };

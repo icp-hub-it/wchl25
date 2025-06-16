@@ -1,5 +1,10 @@
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 
 interface Props {
   cards: CardProps[];
@@ -12,135 +17,93 @@ interface CardProps {
 
 const Slideshow = ({ cards }: Props) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const isScrolling = React.useRef(false);
-  const [active, setActive] = React.useState(false);
-  const isAnimating = React.useRef(false); // blocca scroll durante animazione
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-  const [cardIndex, setCardIndex] = React.useState(0);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
 
-  const handleWheel = React.useCallback(
-    (e: WheelEvent) => {
-      // if there is `#` in the URL, do not handle scroll
-      if (window.location.hash) {
-        console.log("Hash in URL, blocking scroll");
-        return;
-      }
+  const totalCards = cards.length;
 
-      const scrollEnded =
-        (cardIndex === 0 && e.deltaY < 0) ||
-        (cardIndex === cards.length - 1 && e.deltaY > 0);
-
-      if ((active || isAnimating.current) && !scrollEnded) {
-        document.body.style.overflowY = "hidden"; // Prevent scrolling
-      } else {
-        document.body.style.overflowY = "auto"; // Allow scrolling
-      }
-
-      if (isAnimating.current) {
-        console.log("Animation in progress, blocking scroll");
-        e.preventDefault();
-        e.stopPropagation();
-
-        return;
-      }
-
-      if (!active) return;
-
-      if (active && cardIndex === 0 && e.deltaY < 0) {
-        return;
-      }
-      if (active && cardIndex === cards.length - 1 && e.deltaY > 0) {
-        return;
-      }
-
-      if (isScrolling.current) return;
-
-      e.preventDefault();
-
-      if (e.deltaY > 10 && cardIndex < cards.length - 1) {
-        isScrolling.current = true;
-        isAnimating.current = true; // Set animating state to true to block further scroll
-        setCardIndex((i) => i + 1);
-      } else if (e.deltaY < -10 && cardIndex > 0) {
-        isScrolling.current = true;
-        isAnimating.current = true; // Set animating state to true to block further scroll
-        setCardIndex((i) => i - 1);
-      }
-
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 1_000);
-    },
-    [active, cardIndex, cards.length],
-  );
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
-      { root: null, threshold: 1, rootMargin: "0px" },
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  React.useEffect(() => {
-    if (!active) return;
-
-    // if there is `#` in the URL, do not handle scroll
-    if (window.location.hash) {
-      console.log("Hash in URL, blocking scroll");
-      return;
-    }
-
-    if (cardIndex === 0 || cardIndex === cards.length - 1) {
-      containerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center", // Align the center of the container with the viewport
-      });
-    }
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [active, cardIndex, cards.length, handleWheel]);
-
-  const card = cards[cardIndex];
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setScrollProgress(latest);
+    const index = Math.floor(latest * totalCards);
+    setActiveIndex(Math.min(index, totalCards - 1));
+  });
 
   return (
-    <div
-      ref={containerRef}
-      className="mx-auto h-[450px] w-full max-w-4xl overflow-hidden"
-    >
-      <Card
-        key={cardIndex}
-        title={card.title}
-        text={card.text}
-        isAnimating={isAnimating}
-      />
+    <div ref={containerRef} className="relative mx-auto h-[300vh] w-full">
+      <div className="sticky top-0 h-screen">
+        {cards.map((card, i) => (
+          <Card
+            key={i}
+            title={card.title}
+            text={card.text}
+            activeIndex={activeIndex}
+            index={i}
+          />
+        ))}
+
+        {/* Scrollbar bullets */}
+        <div className="absolute top-1/2 left-4 z-50 flex -translate-y-1/2 flex-col gap-2">
+          {cards.map((_, i) => {
+            const percentPerCard = 1 / totalCards;
+            const start = i * percentPerCard;
+            const end = (i + 1) * percentPerCard;
+
+            let height = "0%";
+            if (scrollProgress >= end) {
+              height = "100%";
+            } else if (scrollProgress >= start && scrollProgress < end) {
+              const localProgress = (scrollProgress - start) / percentPerCard;
+              height = `${localProgress * 100}%`;
+            }
+
+            return (
+              <div
+                key={i}
+                className="relative h-24 w-1 overflow-hidden rounded-full bg-white/20"
+              >
+                <motion.div
+                  className="bg-pink absolute top-0 left-0 w-full"
+                  animate={{ height }}
+                  transition={{ duration: 0.1, ease: "easeOut" }}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
 
-interface CardComponentProps extends CardProps {
-  isAnimating: React.RefObject<boolean>;
+interface CardComponentProps {
+  title: string;
+  text: string;
+  activeIndex: number;
+  index: number;
 }
 
-const Card = ({ title, text, isAnimating }: CardComponentProps) => (
+const Card = ({ title, text, activeIndex, index }: CardComponentProps) => (
   <AnimatePresence mode="wait">
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      onAnimationComplete={() => {
-        isAnimating.current = false; // Reset animating state after animation completes
-      }}
-      className="flex h-[450px] snap-start flex-col items-center justify-center gap-4 opacity-0"
-    >
-      <h2 className="font-pp text-center text-2xl leading-tight font-bold md:text-6xl">
-        {title}
-      </h2>
-      <p className="text-center text-lg">{text}</p>
-    </motion.div>
+    {activeIndex === index && (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0.5 }}
+        className="absolute top-0 flex h-screen w-full flex-col items-center justify-center gap-4 p-4 text-center md:p-6"
+      >
+        <h2 className="font-pp mx-auto max-w-4xl text-3xl leading-tight font-bold sm:text-4xl md:text-5xl xl:text-6xl">
+          {title}
+        </h2>
+        <p className="mx-auto max-w-xl text-lg">{text}</p>
+      </motion.div>
+    )}
   </AnimatePresence>
 );
 

@@ -71,8 +71,8 @@ const WorkshopsAndResources = ({
   workshops,
   resources,
 }: WorkshopAndResourcesProps) => (
-  <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-    <h2 className="font-pp mb-4 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
+  <div className="container mx-auto flex w-full flex-col gap-8 px-4">
+    <h2 className="font-pp text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
       {title}
     </h2>
     <Workshops workshops={workshops} />
@@ -144,10 +144,10 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
   );
 
   return (
-    <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 px-8 py-4">
-      <div className="flex flex-col justify-between sm:flex-row">
-        <div className="flex flex-col gap-4 py-8 sm:flex-1/6">
-          <p className="bg-pink/25 w-fit rounded-full px-2">
+    <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 p-4 lg:p-6">
+      <div className="grid gap-x-4 lg:grid-cols-4">
+        <div className="mb-4 flex gap-2 lg:mb-0 lg:flex-col">
+          <p className="bg-pink/25 w-fit rounded-full px-2 whitespace-nowrap">
             {getOrdinalDate(date)}
           </p>
           <p className="bg-blue/20 w-fit rounded-full px-2">
@@ -157,25 +157,23 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
             })}
           </p>
         </div>
-        <div className="flex flex-col gap-4 sm:flex-8/12">
+        <div className="flex flex-col gap-4 lg:col-span-2">
+          <h3 className="font-pp text-2xl font-bold md:text-3xl">{name}</h3>
           <div>
-            <p className="text-pink/50 text-sm capitalize">{kind} Workshop</p>
+            <p className="text-pink/50 capitalize">{kind} Workshop</p>
           </div>
-          <h3 className="font-pp mb-2 text-xl font-bold sm:text-[28px]">
-            {name}
-          </h3>
           <div>
-            <p className="text-gray text-sm">{text}</p>
+            <p className="text-gray">{text}</p>
           </div>
         </div>
-        <div className="flex flex-col gap-8 py-8 sm:flex-1/6">
+        <div className="flex flex-col gap-4">
           {participantsWithImg.map((participant, index) => (
             <div key={index} className="flex gap-4">
               <div>
                 <img
                   src={participant.image || ""}
                   alt={participant.name}
-                  className="h-[36px] w-[36px] rounded-full"
+                  className="h-12 w-12 rounded-full"
                   width={36}
                   height={36}
                   loading="lazy"
@@ -245,7 +243,6 @@ const Resources = ({ resources }: { resources: ResourceProps[] }) => {
     </div>
   );
 };
-
 const Resource = ({ name, kind, website, participants }: ResourceProps) => {
   const participantsWithImg = React.useMemo(
     () =>
@@ -257,29 +254,32 @@ const Resource = ({ name, kind, website, participants }: ResourceProps) => {
   );
 
   return (
-    <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 px-8 py-4">
-      <div className="flex flex-col justify-between sm:flex-row">
-        <div className="flex flex-col gap-4 py-8 sm:flex-1/6">
+    <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 p-4 md:p-6">
+      <div className="grid gap-4 lg:grid-cols-4">
+        {/* This was second, now it's first */}
+        <div className="order-0 flex flex-col lg:col-span-2">
+          <h3 className="font-pp text-2xl font-bold md:text-3xl">{name}</h3>
+          <div>
+            <p className="text-pink/50 capitalize">{kind}</p>
+          </div>
+        </div>
+
+        {/* This was first, now it's second */}
+        <div className="flex flex-col">
           <a
             href={website}
             target="_blank"
-            className="w-fit rounded-full bg-white px-2 text-black hover:underline"
+            className="order-1 mt-1 w-fit rounded-full bg-white px-2 text-black hover:underline"
           >
             <FiIcons.FiArrowUpRight className="text-pink mr-2 inline" />
             <span className="font-bold text-black">Explore</span>
           </a>
         </div>
-        <div className="flex flex-col gap-4 sm:flex-8/12">
-          <div>
-            <p className="text-pink/50 text-sm capitalize">{kind}</p>
-          </div>
-          <h3 className="font-pp mb-2 text-xl font-bold sm:text-[28px]">
-            {name}
-          </h3>
-        </div>
-        <div className="flex flex-col gap-8 py-8 sm:flex-1/6">
+
+        {/* Unchanged */}
+        <div className="flex flex-col gap-4">
           {participantsWithImg.map((participant, index) => (
-            <div key={index} className="flex gap-4">
+            <div key={index} className="flex items-center gap-4">
               <div>
                 <img
                   src={participant.image || ""}

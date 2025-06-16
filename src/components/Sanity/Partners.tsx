@@ -40,11 +40,11 @@ const Partners = ({ title, partners }: Props) => {
   }, [pages, partners.length]);
 
   return (
-    <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-      <h2 className="font-pp mb-4 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
+    <div className="container mx-auto flex w-full flex-col gap-8 px-4">
+      <h2 className="font-pp text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
         {title}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-4">
         {partners.slice(0, pages * PARTNERS_PER_PAGE).map((partner, index) => (
           <Partner
             key={index}
@@ -61,13 +61,13 @@ const Partners = ({ title, partners }: Props) => {
 };
 
 const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
-  <div className="flex border-collapse flex-col justify-between border border-gray-700 p-8">
-    <h3 className="font-halo mb-2 text-2xl sm:text-[28px]">View more</h3>
+  <div className="flex border-collapse flex-col justify-between border border-gray-700 p-4 md:p-6">
+    <h3 className="font-halo mb-2 text-2xl">View more</h3>
     <button
       onClick={onClick}
-      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent p-8 text-white hover:border-0"
+      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent bg-white/10 p-8 text-white transition-all hover:border-transparent"
     >
-      <FiIcons.FiPlus size={28} className="inline-block text-[28px]" />
+      <FiIcons.FiPlus size={28} className="inline-block" />
     </button>
   </div>
 );
@@ -78,7 +78,7 @@ const Partner = ({ name, text, website: website, logo }: PartnerProps) => {
   }, [logo]);
 
   return (
-    <div className="flex border-collapse flex-col border border-gray-700 p-8">
+    <div className="flex border-collapse flex-col border border-gray-700 p-4 md:p-6">
       <div>
         <a href={website} target="_blank" className="block">
           <img
@@ -92,7 +92,7 @@ const Partner = ({ name, text, website: website, logo }: PartnerProps) => {
         </a>
       </div>
       <h3 className="font-pp mb-2 text-xl font-bold">{name}</h3>
-      <p className="text-gray text-sm">{text}</p>
+      <p className="text-gray">{text}</p>
     </div>
   );
 };
