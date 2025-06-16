@@ -109,7 +109,7 @@ const Slideshow = ({ cards }: Props) => {
   return (
     <div
       ref={containerRef}
-      className="mx-auto flex w-full max-w-3xl flex-col justify-center overflow-hidden px-4"
+      className="mx-auto h-[450px] w-full max-w-4xl overflow-hidden"
     >
       <Card
         key={cardIndex}
@@ -128,13 +128,13 @@ interface CardComponentProps extends CardProps {
 const Card = ({ title, text, isAnimating }: CardComponentProps) => (
   <AnimatePresence mode="wait">
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, y: -100 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
       onAnimationComplete={() => {
         isAnimating.current = false; // Reset animating state after animation completes
       }}
-      className="flex min-h-screen max-w-7xl snap-start flex-col items-center justify-center gap-4 opacity-0"
+      className="flex h-[450px] snap-start flex-col items-center justify-center gap-4 opacity-0"
     >
       <h2 className="font-pp text-center text-2xl leading-tight font-bold md:text-6xl">
         {title}

@@ -49,7 +49,7 @@ const IntroDesktop = ({ homepage }: Props) => (
       <div className="flex flex-col items-center justify-between align-middle lg:flex-row">
         <span className="font-halo mr-auto mb-2 w-fit bg-black px-3 py-1 text-right text-2xl leading-[0.9] text-white uppercase sm:text-3xl lg:text-5xl">
           <span className="inline-block pt-[.2em]">July - October</span>
-          <Globe width={70} height={40} />
+          <Globe width={70} height={40} classes="h-[1em] w-[1.3em]" />
           <span className="inline-block pt-[.2em]">2025</span>
         </span>
         <div className="ml-auto bg-black p-3">

@@ -15,10 +15,10 @@ const ScrollText = ({ text }: Props) => {
           <React.Fragment key={index}>
             <span className="pt-[.2em]">{line}</span>
             <span className="mx-4 hidden sm:inline-block">
-              <Globe height={40} width={70} />
+              <Globe height={40} width={70} classes="h-[1em] w-[1.3em]" />
             </span>
             <span className="inline-block sm:hidden">
-              <Globe height={20} width={40} />
+              <Globe height={20} width={40} classes="h-[1em] w-[1.3em]" />
             </span>
           </React.Fragment>
         ))}
