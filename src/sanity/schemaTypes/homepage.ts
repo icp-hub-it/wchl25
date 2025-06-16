@@ -26,10 +26,6 @@ export const homepageType = defineType({
       type: "url",
     },
     {
-      name: "ctaText",
-      type: "string",
-    },
-    {
       name: "countdownDate",
       type: "datetime",
     },
