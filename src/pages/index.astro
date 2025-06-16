@@ -5,7 +5,7 @@ import Sections from "../components/Sections.astro";
 import Intro from "../components/Intro";
 import Countdown from "../components/Countdown";
 
-const homepage = await getHomepage("en");
+const homepage = await getHomepage();
 
 console.log("homepage", homepage);
 ---
@@ -17,8 +17,13 @@ console.log("homepage", homepage);
 
 <Layout>
   <div class="">
-    <Intro />
-    <Countdown />
+    <Intro ctaText={homepage.ctaText} ctaUrl={homepage.ctaUrl} />
+    <Countdown
+      ctaText={homepage.ctaText}
+      ctaUrl={homepage.ctaUrl}
+      countdownText={homepage.countdownText}
+      date={homepage.countdownDate}
+    />
     {homepage?.sections && <Sections data={homepage.sections} />}
   </div>
 </Layout>

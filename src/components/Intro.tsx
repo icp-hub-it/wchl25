@@ -4,9 +4,14 @@ import Globe from "./Intro/Globe";
 import Icp from "./Intro/Icp";
 import Topbar from "./Intro/Topbar";
 
-const Intro = () => (
+interface Props {
+  ctaText: string;
+  ctaUrl: string;
+}
+
+const Intro = (props: Props) => (
   <div className="home-bg h-screen min-h-screen bg-cover bg-repeat">
-    <Topbar />
+    <Topbar {...props} />
     <IntroDesktop />
     <IntroMobile />
   </div>

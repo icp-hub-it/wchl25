@@ -135,25 +135,16 @@ export async function getPage(locale: string, slug: string) {
   );
 }
 
-export async function getHomepage(locale: string) {
+export async function getHomepage() {
   return await sanityClient.fetch(
-    groq`*[_type == "homepage" && language == $locale][0] {
-    heroSection{
-      headline,
-      subHeadline,
-      ascii,
-      link {
-      ${linkFields}},
-      mainImage{
-        asset->{
-          url,
-          metadata { lqip, dimensions }
-        }
-      }
-    },
+    groq`*[_type == "homepage"][0] {
+    ctaText,
+    ctaUrl,
+    countdownDate,
+    countdownText,
     ${sectionsFields}
   }`,
-    { locale },
+    {},
   );
 }
 

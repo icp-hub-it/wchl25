@@ -19,8 +19,20 @@ const calculateTimeLeft = (targetDate: Date): CountdownParts => {
   return { days, hours, minutes };
 };
 
-const Countdown = () => {
-  const targetDate = React.useMemo(() => new Date("2025-07-01T12:00:00Z"), []); // Set your target date here
+interface CountdownProps {
+  date: Date;
+  countdownText: string;
+  ctaText: string;
+  ctaUrl: string;
+}
+
+const Countdown = ({
+  date,
+  countdownText,
+  ctaText,
+  ctaUrl,
+}: CountdownProps) => {
+  const targetDate = React.useMemo(() => new Date(date), [date]);
 
   const [timeLeft, setTimeLeft] = React.useState<CountdownParts>(
     calculateTimeLeft(targetDate),
@@ -38,7 +50,7 @@ const Countdown = () => {
     <div className="blur-bar fixed right-0 bottom-0 left-0 z-50 w-screen px-20 py-4 sm:py-8">
       <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-between">
         <span className="font-pp block text-center text-xl text-white sm:text-left sm:text-3xl">
-          Registration Opens
+          {countdownText}
         </span>
         {timeLeft.days >= 0 && (
           <div className="font-pp text-center text-xl text-white sm:text-left sm:text-2xl">
@@ -65,11 +77,11 @@ const Countdown = () => {
         <div>
           <a
             className="font-text bg-pink block rounded-full px-4 py-3 font-bold text-white hover:underline"
-            href="/join"
+            href={ctaUrl}
           >
             <span className="text-md mr-2 p-2 text-white sm:text-2xl">
               <FiIcon.FiArrowRight size={24} className="mr-2 inline-block" />
-              Join the League
+              {ctaText}
             </span>
           </a>
         </div>

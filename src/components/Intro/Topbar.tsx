@@ -2,7 +2,12 @@ import * as FiIcon from "react-icons/fi";
 
 import Icp from "./Icp";
 
-const Topbar = () => (
+interface Props {
+  ctaText: string;
+  ctaUrl: string;
+}
+
+const Topbar = ({ ctaText, ctaUrl }: Props) => (
   <div className="flex flex-row items-center justify-between p-4">
     <div className="flex gap-2">
       <Icp width={86} height={40} />
@@ -23,12 +28,12 @@ const Topbar = () => (
       </a>
       <a
         className="font-text block rounded-full bg-white px-4 py-3 align-middle font-bold text-black hover:bg-white/90 hover:underline"
-        href="/join"
+        href={ctaUrl}
       >
         <span className="bg-pink mr-2 rounded-full p-2 text-white">
           <FiIcon.FiArrowRight className="inline-block align-middle" />
         </span>
-        Join the League
+        {ctaText}
       </a>
     </div>
   </div>
