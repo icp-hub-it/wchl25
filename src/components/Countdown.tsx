@@ -47,9 +47,9 @@ const Countdown = ({
   }, [targetDate]);
 
   return (
-    <div className="blur-bar fixed right-0 bottom-0 left-0 z-50 w-screen px-20 py-4 sm:py-8">
-      <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:justify-between">
-        <span className="font-pp block text-center text-xl text-white sm:text-left sm:text-3xl">
+    <div className="relative right-0 bottom-0 left-0 z-50 flex w-full flex-col items-center md:fixed md:p-4">
+      <div className="flex w-auto w-full flex-col items-center justify-center gap-2 px-6 py-6 backdrop-blur-xl md:w-auto md:flex-row md:justify-between md:rounded-full md:px-3 md:py-3">
+        <span className="font-pp block pl-4 text-center text-xl text-white sm:text-left sm:text-2xl">
           {countdownText}
         </span>
         {timeLeft.days >= 0 && (
@@ -57,34 +57,33 @@ const Countdown = ({
             <span className="text-xl font-bold sm:text-3xl">
               {timeLeft.days}
             </span>
-            <span className="font-text text-sm uppercase sm:text-lg">
+            <span className="font-text mr-4 ml-1 text-base uppercase">
               days{" "}
             </span>
             <span className="text-xl font-bold sm:text-3xl">
               {timeLeft.hours}
             </span>
-            <span className="font-text text-sm uppercase sm:text-lg">
+            <span className="font-text mr-4 ml-1 text-base uppercase">
               hours{" "}
             </span>
             <span className="text-xl font-bold sm:text-3xl">
               {timeLeft.minutes}
             </span>
-            <span className="font-text text-sm uppercase sm:text-lg">
+            <span className="font-text mr-4 ml-1 text-base uppercase">
               minutes{" "}
             </span>
           </div>
         )}
-        <div>
-          <a
-            className="font-text bg-pink block rounded-full px-4 py-3 font-bold text-white hover:underline"
-            href={ctaUrl}
-          >
-            <span className="text-md mr-2 p-2 text-white sm:text-2xl">
-              <FiIcon.FiArrowRight size={24} className="mr-2 inline-block" />
-              {ctaText}
-            </span>
-          </a>
-        </div>
+
+        <a
+          className="font-text bg-pink block flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
+          href={ctaUrl}
+        >
+          <span className="mr-2 p-2 text-white">
+            <FiIcon.FiArrowRight size={24} className="mr-2 inline-block" />
+            {ctaText}
+          </span>
+        </a>
       </div>
     </div>
   );

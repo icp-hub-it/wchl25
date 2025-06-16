@@ -51,7 +51,6 @@ const { data } = Astro.props;
       }
 
       if (item._type === "sectionPartners") {
-        console.log(item.items);
         return (
           <Partners title={item.title} partners={item.items} client:load />
         );

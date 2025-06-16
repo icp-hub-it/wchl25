@@ -3,11 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { getHomepage } from "../utils/sanity";
 import Sections from "../components/Sections.astro";
 import Intro from "../components/Intro";
-import Countdown from "../components/Countdown";
 
 const homepage = await getHomepage();
-
-console.log("homepage", homepage);
 ---
 
 <script>
@@ -17,13 +14,8 @@ console.log("homepage", homepage);
 
 <Layout>
   <div class="">
-    <Intro ctaText={homepage.ctaText} ctaUrl={homepage.ctaUrl} />
-    <Countdown
-      ctaText={homepage.ctaText}
-      ctaUrl={homepage.ctaUrl}
-      countdownText={homepage.countdownText}
-      date={homepage.countdownDate}
-    />
+    <Intro homepage={homepage} />
+
     {homepage?.sections && <Sections data={homepage.sections} />}
   </div>
 </Layout>
