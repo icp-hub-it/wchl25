@@ -1,5 +1,3 @@
-import * as FiIcon from "react-icons/fi";
-
 import Globe from "./Intro/Globe";
 import Icp from "./Intro/Icp";
 import Topbar from "./Intro/Topbar";
