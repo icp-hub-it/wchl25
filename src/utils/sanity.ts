@@ -9,8 +9,7 @@ const linkFields = `
   url,
   reference->{
     title,
-    slug,
-    language
+    slug
   },
   file {
     asset->{
@@ -43,7 +42,7 @@ const sectionsFields = `
 
 export async function getPosts(locale: string): Promise<Post[]> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current) && language == $locale] | order(_createdAt desc)`,
+    groq`*[_type == "post" && defined(slug.current] | order(_createdAt desc)`,
     { locale },
   );
 }
@@ -54,7 +53,7 @@ export async function getLocalizedPosts(
   limit: number = 3,
 ): Promise<Post[]> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current) && language == $locale ${
+    groq`*[_type == "post" && defined(slug.current) ${
       excludeSlug ? "&& slug.current != $excludeSlug" : ""
     }] 
       | order(_createdAt desc)[0...$limit]`,
@@ -64,27 +63,16 @@ export async function getLocalizedPosts(
 
 export async function getPages(locale: string) {
   return await sanityClient.fetch(
-    groq`*[_type == "page" && defined(slug.current) && language == $locale] | order(_createdAt desc){language, slug}`,
-    { locale },
-  );
-}
-
-export async function getHomepages(locale: string) {
-  return await sanityClient.fetch(
-    groq`*[_type == "homepage" && language == $locale]{language}`,
+    groq`*[_type == "page" && defined(slug.current)] | order(_createdAt desc){slug}`,
     { locale },
   );
 }
 
 export async function getPost(locale: string, slug: string): Promise<Post> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == $slug && language == $locale][0]{
+    groq`*[_type == "post" && slug.current == $slug][0]{
     title, 
     _createdAt,
-    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-      slug,
-      language
-    },
     body,
     mainImage,
     publishedAt,
@@ -113,7 +101,7 @@ export async function getPost(locale: string, slug: string): Promise<Post> {
 
 export async function getPage(locale: string, slug: string) {
   return await sanityClient.fetch(
-    groq`*[_type == "page" && slug.current == $slug && language == $locale][0]{
+    groq`*[_type == "page" && slug.current == $slug][0]{
       title,
       ...,
       heroSection {
@@ -122,11 +110,7 @@ export async function getPage(locale: string, slug: string) {
          ${linkFields}
         },
       },
-      ${sectionsFields},
-      "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-        slug,
-        language
-      },
+      ${sectionsFields}
     }`,
     {
       locale,
@@ -135,9 +119,9 @@ export async function getPage(locale: string, slug: string) {
   );
 }
 
-export async function getHomepage(locale: string) {
+export async function getHomepage() {
   return await sanityClient.fetch(
-    groq`*[_type == "homepage" && language == $locale][0] {
+    groq`*[_type == "homepage"][0] {
     heroSection{
       headline,
       subHeadline,
@@ -153,13 +137,13 @@ export async function getHomepage(locale: string) {
     },
     ${sectionsFields}
   }`,
-    { locale },
+    {},
   );
 }
 
 export async function getSettings(locale: string) {
   return await sanityClient.fetch(
-    groq`*[_type == "settings" && language == $locale][0]{
+    groq`*[_type == "settings"][0]{
       header []{
         _type,
         ${linkFields},
@@ -178,8 +162,7 @@ export async function getSettings(locale: string) {
           link->{
               _type,
               title,
-              slug,
-              language
+              slug
             },
         },
         text,
@@ -224,10 +207,6 @@ export interface Post {
     metaDescription: string;
     metaImage: ImageAsset;
   };
-  _translations: {
-    slug: Slug;
-    language: string;
-  }[];
   link: {
     type: "url" | "reference" | "file";
     url?: string;
