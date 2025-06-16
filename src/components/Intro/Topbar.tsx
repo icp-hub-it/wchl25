@@ -8,16 +8,9 @@ interface Props {
 }
 
 const Topbar = ({ ctaText, ctaUrl }: Props) => (
-  <div className="fixed top-0 flex w-screen flex-row items-center justify-between p-4">
+  <div className="fixed top-0 z-20 flex w-screen flex-row items-center justify-between p-4">
     <div className="itens-center flex gap-2">
-      <Icp width={86} height={40} />
-      <div className="font-pp text-xs leading-none text-white uppercase sm:text-xl">
-        <h1>
-          <span>Internet</span>
-          <br />
-          <span>Computer</span>
-        </h1>
-      </div>
+      <Icp width={200} height={60} classes="w-48" />
     </div>
     <div className="hidden items-center justify-between gap-4 sm:flex sm:justify-end">
       <a

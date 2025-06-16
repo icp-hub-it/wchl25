@@ -14,12 +14,12 @@ interface RoundProps {
 }
 
 const Rounds = ({ title, description, rounds }: RoundsProps) => (
-  <div className="mx-auto flex w-full flex-col gap-8 sm:w-[80%]">
-    <div className="flex flex-col justify-between gap-8 sm:flex-row sm:gap-0">
-      <h2 className="font-pp mb-4 flex-8/12 px-4 text-3xl font-bold uppercase sm:px-0 sm:text-[60px]">
+  <div className="container mx-auto flex w-full flex-col gap-8">
+    <div className="grid gap-8 md:grid-cols-2">
+      <h2 className="font-pp mb-4 max-w-xl text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
         {title}
       </h2>
-      <p className="flex-4/12 px-4 text-xl">{description}</p>
+      <p className="">{description}</p>
     </div>
     <div className="flex flex-col">
       {rounds.map((round, index) => (
@@ -57,31 +57,35 @@ const Round = ({
   return (
     <div
       style={{ backgroundColor: bgColor }}
-      className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 px-8 py-8"
+      className="flex flex-col justify-between border-t border-b border-gray-800"
     >
-      <div className="flex flex-col justify-between sm:flex-row">
-        <div className="flex flex-col justify-between gap-4 sm:flex-3/12">
-          <p className="bg-pink/25 w-fit rounded-full px-2">{month}</p>
-          <div>
+      <div className="grid gap-4 px-4 py-8 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="flex flex-col justify-between gap-4 lg:col-span-3">
+          <p className="bg-pink/25 mt-2 w-fit rounded-full px-2">{month}</p>
+          <div className="hidden sm:block">
             <p className="text-pink/50">Duration</p>
             <p className="">{duration}</p>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-4 sm:flex-5/12">
-          <h3 className="font-pp mb-2 text-xl font-bold sm:text-[28px]">
+        <div className="flex flex-col justify-between sm:gap-4 lg:col-span-5 lg:gap-8">
+          <h3 className="font-pp mb-2 text-xl font-bold sm:text-3xl">
             {title}
           </h3>
           <div>
-            <p className="text-gray text-sm">{description}</p>
+            <p className="text-gray max-w-md">{description}</p>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-8 pt-4 sm:flex-1/6">
+        <div className="flex flex-col justify-end lg:col-span-2">
           <p className="text-pink/50">Advancement</p>
           <p className="">{advancement}</p>
         </div>
-        <div className="flex flex-col justify-between gap-8 pt-4 sm:flex-1/6">
+        <div className="flex flex-col justify-end lg:col-span-2">
           <p className="text-pink/50">Prize</p>
           <p className="">{prize}</p>
+        </div>
+        <div className="flex flex-col justify-end sm:hidden lg:col-span-2">
+          <p className="text-pink/50">Duration</p>
+          <p className="">{duration}</p>
         </div>
       </div>
     </div>
