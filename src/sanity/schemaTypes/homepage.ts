@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+
 import { sectionText } from "./sectionText";
 import { sectionSlideshow } from "./sectionSlideshow";
 import { sectionTimeline } from "./sectionTimeline";
@@ -17,10 +18,24 @@ export const homepageType = defineType({
   type: "document",
   fields: [
     {
-      name: "language",
+      name: "ctaText",
       type: "string",
-      readOnly: true,
-      hidden: true,
+    },
+    {
+      name: "ctaUrl",
+      type: "url",
+    },
+    {
+      name: "ctaText",
+      type: "string",
+    },
+    {
+      name: "countdownDate",
+      type: "datetime",
+    },
+    {
+      name: "countdownText",
+      type: "string",
     },
     defineField({
       name: "sections",
