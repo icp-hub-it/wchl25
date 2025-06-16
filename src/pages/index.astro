@@ -1,3 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getHomepage } from "../utils/sanity";
+import Sections from "../components/Sections.astro";
+import Intro from "../components/Intro";
+import Countdown from "../components/Countdown";
+
+const homepage = await getHomepage("en");
+
+console.log("homepage", homepage);
+---
+
 <script>
-  window.location.href = "/en";
+  import { initAnalytics } from "../utils/analytics";
+  initAnalytics();
 </script>
+
+<Layout>
+  <div class="">
+    <Intro />
+    <Countdown />
+    {homepage?.sections && <Sections data={homepage.sections} />}
+  </div>
+</Layout>
