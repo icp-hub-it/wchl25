@@ -15,10 +15,6 @@ export const faqType = defineType({
       type: "url",
     },
     {
-      name: "ctaText",
-      type: "string",
-    },
-    {
       name: "countdownDate",
       type: "datetime",
     },
