@@ -20,7 +20,11 @@ const Slideshow = ({ cards }: Props) => {
 
   const handleWheel = React.useCallback(
     (e: WheelEvent) => {
-      console.log("Wheel event detected", e.deltaY, active);
+      // if there is `#` in the URL, do not handle scroll
+      if (window.location.hash) {
+        console.log("Hash in URL, blocking scroll");
+        return;
+      }
 
       const scrollEnded =
         (cardIndex === 0 && e.deltaY < 0) ||
@@ -82,6 +86,12 @@ const Slideshow = ({ cards }: Props) => {
 
   React.useEffect(() => {
     if (!active) return;
+
+    // if there is `#` in the URL, do not handle scroll
+    if (window.location.hash) {
+      console.log("Hash in URL, blocking scroll");
+      return;
+    }
 
     if (cardIndex === 0 || cardIndex === cards.length - 1) {
       containerRef.current?.scrollIntoView({

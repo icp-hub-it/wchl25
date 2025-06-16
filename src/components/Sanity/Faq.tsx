@@ -41,7 +41,7 @@ const Accordion = ({ title, content }: { title: string; content: string }) => {
         onClick={toggleAccordion}
       >
         <span className="font-pp text-2xl font-bold">{title}</span>
-        <div className="rounded-full border border-gray-700 p-4">
+        <div className="hover:bg-pink rounded-full border border-gray-700 p-4">
           {isOpen ? (
             <Icon.FiMinus
               className="text-brandGray hover:text-brandAlt"

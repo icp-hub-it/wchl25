@@ -2,7 +2,7 @@ import Icp from "./Intro/Icp";
 
 const Footer = () => (
   <footer>
-    <div className="flex flex-col items-center justify-between gap-8 p-12 sm:flex-row sm:gap-0">
+    <div className="flex flex-col items-center justify-between gap-8 p-12 pb-30 sm:flex-row sm:gap-0">
       <div>
         <p className="text-sm text-gray-500">
           &copy; {new Date().getFullYear()} DFINITY Foundation

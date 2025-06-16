@@ -67,7 +67,7 @@ const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
     </h3>
     <button
       onClick={onClick}
-      className="bg-pink hover:bg-pink/90 w-fit rounded-full p-10 text-white"
+      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent p-10 text-white hover:border-0"
     >
       <FiIcons.FiPlus size={40} className="inline-block text-[40px]" />
     </button>

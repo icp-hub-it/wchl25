@@ -65,7 +65,7 @@ const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
     <h3 className="font-halo mb-2 text-2xl sm:text-[28px]">View more</h3>
     <button
       onClick={onClick}
-      className="bg-pink hover:bg-pink/90 w-fit rounded-full p-8 text-white"
+      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent p-8 text-white hover:border-0"
     >
       <FiIcons.FiPlus size={28} className="inline-block text-[28px]" />
     </button>

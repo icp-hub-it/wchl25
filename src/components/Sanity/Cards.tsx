@@ -36,7 +36,7 @@ const Card = ({
   index: number;
 }) => (
   <div
-    className="flex h-full flex-col border-l border-gray-700 p-8"
+    className="flex h-full flex-col border-l border-gray-700 p-8 pb-10"
     style={{
       backgroundColor: BG_COLORS[index % BG_COLORS.length],
     }}

@@ -13,7 +13,7 @@ const ScrollText = ({ text }: Props) => {
       <div className="animate-marquee font-halo flex w-full items-center gap-2 py-1 text-xl leading-[0.95] whitespace-nowrap uppercase sm:text-[70px]">
         {repeatedText.map((line, index) => (
           <React.Fragment key={index}>
-            <span>{line}</span>
+            <span className="pt-2">{line}</span>
             <span className="hidden sm:inline-block">
               <Globe height={40} width={70} />
             </span>

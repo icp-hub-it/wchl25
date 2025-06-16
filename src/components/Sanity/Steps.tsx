@@ -64,7 +64,7 @@ const Step = ({
         <span className="font-pp block text-2xl leading-[0.9]">0{step}</span>
       </div>
     )}
-    <h3 className="text-2xl font-bold">{title}</h3>
+    <h3 className="font-pp text-2xl font-bold">{title}</h3>
     <p className="text-gray text-lg">{text}</p>
   </div>
 );
