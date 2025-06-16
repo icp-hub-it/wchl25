@@ -96,7 +96,7 @@ const Card = ({ title, text, activeIndex, index }: CardComponentProps) => (
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
         transition={{ duration: 0.5 }}
-        className="absolute top-0 flex h-screen w-full flex-col items-center justify-center gap-4 p-4 text-center md:p-6"
+        className="absolute top-0 flex h-screen w-full flex-col items-center justify-center gap-4 p-8 text-center md:p-6"
       >
         <h2 className="font-pp mx-auto max-w-4xl text-3xl leading-tight font-bold sm:text-4xl md:text-5xl xl:text-6xl">
           {title}
