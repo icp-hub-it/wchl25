@@ -19,6 +19,10 @@ export default defineConfig(({ mode }) => ({
           source: "/studio/**",
           destination: "/studio",
         },
+        {
+          source: "/.well-known/ic-domain",
+          destination: "/.well-known/ic-domain",
+        },
       ],
     },
   },
