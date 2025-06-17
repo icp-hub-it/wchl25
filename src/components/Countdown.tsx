@@ -48,7 +48,7 @@ const Countdown = ({
 
   return (
     <div className="relative right-0 bottom-0 left-0 z-5 flex w-full flex-col items-center md:fixed md:p-4">
-      <div className="flex w-auto w-full flex-col items-center justify-center gap-2 px-6 py-6 backdrop-blur-xl md:w-auto md:flex-row md:justify-between md:gap-12 md:rounded-full md:px-3 md:py-3">
+      <div className="flex w-full flex-col items-center justify-center gap-2 border border-white/10 px-6 py-6 backdrop-blur-xl md:w-auto md:flex-row md:justify-between md:gap-12 md:rounded-full md:px-3 md:py-3">
         <span className="font-pp block pl-4 text-center text-xl text-white sm:text-left sm:text-2xl">
           {countdownText}
         </span>
@@ -74,7 +74,7 @@ const Countdown = ({
         )}
 
         <a
-          className="font-text bg-pink block flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
+          className="font-text bg-pink flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
           href={ctaUrl}
         >
           <span className="mr-2 p-2 text-white">

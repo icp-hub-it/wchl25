@@ -18,6 +18,10 @@ export const homepageType = defineType({
   type: "document",
   fields: [
     {
+      name: "faqUrl",
+      type: "url",
+    },
+    {
       name: "ctaText",
       type: "string",
     },
