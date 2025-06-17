@@ -8,6 +8,8 @@ import Partners from "./Sanity/Partners";
 import Rounds from "./Sanity/Rounds";
 import WorkshopsAndResources from "./Sanity/Workshops";
 import Slideshow from "./Sanity/Slideshow";
+import Faq from "./Sanity/Faq";
+import HubMap from "./Sanity/HubMap";
 
 const { data } = Astro.props;
 ---
@@ -15,9 +17,9 @@ const { data } = Astro.props;
 <div class="flex flex-col gap-16 py-20 sm:gap-32">
   {
     data?.map((item: any) => {
-      // if (item._type === "sectionHubMap") {
-      //   return <HubMap title={item.title} client:load />;
-      // }
+      if (item._type === "sectionHubMap") {
+        return <HubMap title={item.title} />;
+      }
 
       if (item._type === "sectionScrollText") {
         return <ScrollText text={item.text} />;
@@ -28,7 +30,7 @@ const { data } = Astro.props;
       }
 
       if (item._type === "sectionRowCards") {
-        return <Cards title={item.title} cards={item.items} client:load />;
+        return <Cards title={item.title} cards={item.items} />;
       }
 
       if (item._type === "sectionSteps") {
@@ -39,7 +41,6 @@ const { data } = Astro.props;
             info={item.info}
             items={item.items}
             showSteps={item.showSteps}
-            client:load
           />
         );
       }
@@ -54,9 +55,9 @@ const { data } = Astro.props;
         );
       }
 
-      // if (item._type === "sectionFaq") {
-      //   return <Faq title={item.title} questions={item.items} client:load />;
-      // }
+      if (item._type === "sectionFaq") {
+        return <Faq title={item.title} questions={item.items} client:load />;
+      }
 
       if (item._type === "sectionRounds") {
         return (
@@ -64,7 +65,6 @@ const { data } = Astro.props;
             title={item.title}
             description={item.description}
             rounds={item.items}
-            client:load
           />
         );
       }

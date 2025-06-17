@@ -5,9 +5,10 @@ import Icp from "./Icp";
 interface Props {
   ctaText: string;
   ctaUrl: string;
+  faqUrl: string;
 }
 
-const Topbar = ({ ctaText, ctaUrl }: Props) => (
+const Topbar = ({ ctaText, ctaUrl, faqUrl }: Props) => (
   <div className="flex w-screen py-4">
     <div className="flex w-full items-center justify-between gap-8 px-4 sm:px-8">
       <div className="flex items-center gap-2">
@@ -16,7 +17,7 @@ const Topbar = ({ ctaText, ctaUrl }: Props) => (
       <div className="hidden items-center justify-between gap-4 sm:flex sm:justify-end">
         <a
           className="font-text block rounded-full bg-white/20 px-4 py-3 align-middle text-white transition-all hover:bg-white/15 hover:underline"
-          href="#faq"
+          href={faqUrl}
         >
           FAQs
         </a>

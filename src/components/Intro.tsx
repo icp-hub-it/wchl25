@@ -6,6 +6,7 @@ interface Props {
   homepage: {
     ctaText: string;
     ctaUrl: string;
+    faqUrl: string;
     countdownText: string;
     countdownDate: Date;
   };

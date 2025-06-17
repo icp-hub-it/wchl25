@@ -140,6 +140,7 @@ export async function getHomepage() {
     groq`*[_type == "homepage"][0] {
     ctaText,
     ctaUrl,
+    faqUrl,
     countdownDate,
     countdownText,
     ${sectionsFields}
