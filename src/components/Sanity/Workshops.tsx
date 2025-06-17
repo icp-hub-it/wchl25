@@ -143,6 +143,37 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
     [participants],
   );
 
+  const extractTimeZoneName = (date: Date): string => {
+    const OVERRIDES: Record<string, string> = {
+      "Coordinated Universal Time": "UTC",
+      "Brasília Standard Time": "BRT",
+      "Brasilia Standard Time": "BRT",
+      "Greenwich Mean Time": "GMT",
+    };
+
+    const fmt = date.toLocaleTimeString("en-US", {
+      timeZoneName: "long",
+    });
+
+    // handle exceptions for time zone names
+    if (OVERRIDES[fmt]) {
+      return OVERRIDES[fmt];
+    }
+
+    const match = fmt.match(/([A-Z])[a-z]+/g);
+
+    if (!match) {
+      return date.toLocaleTimeString("en-US", {
+        timeZoneName: "short",
+      });
+    }
+
+    return match
+      .slice(-4)
+      .map((w) => w[0])
+      .join("");
+  };
+
   return (
     <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 p-4 lg:p-6">
       <div className="grid gap-x-4 lg:grid-cols-4">
@@ -154,8 +185,8 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
             {date.toLocaleTimeString("en-US", {
               hour: "2-digit",
               minute: "2-digit",
-              timeZoneName: "short",
-            })}
+            })}{" "}
+            {extractTimeZoneName(date)}
           </p>
         </div>
         <div className="flex flex-col gap-4 lg:col-span-2">
