@@ -24,6 +24,7 @@ const Topbar = ({ ctaText, ctaUrl, faqUrl }: Props) => (
         <a
           className="font-text flex items-center rounded-full bg-white py-1 pr-4 pl-1 font-bold text-black transition-all hover:bg-white/90 hover:underline"
           href={ctaUrl}
+          target="_blank"
         >
           <span className="bg-pink mr-2 rounded-full p-2 text-white">
             <FiIcon.FiArrowRight className="inline-block h-5 min-w-6 align-middle" />

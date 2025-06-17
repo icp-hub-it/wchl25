@@ -76,6 +76,7 @@ const Countdown = ({
         <a
           className="font-text bg-pink flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
           href={ctaUrl}
+          target="_blank"
         >
           <span className="mr-2 p-2 text-white">
             <FiIcon.FiArrowRight size={24} className="mr-2 inline-block" />
