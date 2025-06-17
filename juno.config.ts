@@ -2,11 +2,7 @@ import { defineConfig } from "@junobuild/config";
 
 export default defineConfig(({ mode }) => ({
   satellite: {
-    ids: {
-      development: "hx5jf-yyaaa-aaaal-asgcq-cai",
-      staging: "hx5jf-yyaaa-aaaal-asgcq-cai",
-      production: "hx5jf-yyaaa-aaaal-asgcq-cai",
-    },
+    id: "hx5jf-yyaaa-aaaal-asgcq-cai",
     source: "dist",
     predeploy: [
       "rm -rf dist .sanity",
