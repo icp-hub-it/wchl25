@@ -18,6 +18,7 @@ const Topbar = ({ ctaText, ctaUrl, faqUrl }: Props) => (
         <a
           className="font-text block rounded-full bg-white/20 px-4 py-3 align-middle text-white transition-all hover:bg-white/15 hover:underline"
           href={faqUrl}
+          target="_blank"
         >
           FAQs
         </a>
