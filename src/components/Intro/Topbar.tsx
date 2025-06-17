@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Topbar = ({ ctaText, ctaUrl, faqUrl }: Props) => (
-  <div className="flex w-screen py-4">
+  <div className="absolute flex w-screen py-4">
     <div className="flex w-full items-center justify-between gap-8 px-4 sm:px-8">
       <div className="flex items-center gap-2">
         <Icp width={200} height={60} classes="w-48" />
