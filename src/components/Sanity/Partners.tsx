@@ -65,7 +65,7 @@ const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
     <h3 className="font-halo mb-2 text-2xl">View more</h3>
     <button
       onClick={onClick}
-      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-transparent bg-white/10 p-8 text-white transition-all hover:border-transparent"
+      className="hover:bg-pink w-fit rounded-full border border-gray-700 bg-white/10 p-8 text-white transition-all hover:border-transparent"
     >
       <FiIcons.FiPlus size={28} className="inline-block" />
     </button>
@@ -91,7 +91,7 @@ const Partner = ({ name, text, website: website, logo }: PartnerProps) => {
           />
         </a>
       </div>
-      <h3 className="font-pp mb-2 text-xl font-bold">{name}</h3>
+      <h3 className="font-pp text-md mb-2 font-bold sm:text-xl">{name}</h3>
       <p className="text-gray">{text}</p>
     </div>
   );

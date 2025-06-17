@@ -154,6 +154,7 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
             {date.toLocaleTimeString("en-US", {
               hour: "2-digit",
               minute: "2-digit",
+              timeZoneName: "short",
             })}
           </p>
         </div>
