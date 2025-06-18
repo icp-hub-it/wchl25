@@ -27,12 +27,17 @@ const Partners = ({ title, partners }: Props) => {
   const [pages, setPages] = React.useState(1);
   const [showMore, setShowMore] = React.useState(true);
 
+  const partnersToShow = React.useMemo(
+    () => (PARTNERS_PER_PAGE + 1) * pages - 1,
+    [partners, pages],
+  );
+
   const onIncrementPages = () => {
     setPages((prev) => prev + 1);
   };
 
   React.useEffect(() => {
-    if (partners.length <= pages * PARTNERS_PER_PAGE) {
+    if (partners.length <= partnersToShow) {
       setShowMore(false);
     } else {
       setShowMore(true);
@@ -45,7 +50,7 @@ const Partners = ({ title, partners }: Props) => {
         {title}
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-4">
-        {partners.slice(0, pages * PARTNERS_PER_PAGE).map((partner, index) => (
+        {partners.slice(0, partnersToShow).map((partner, index) => (
           <Partner
             key={index}
             name={partner.name}

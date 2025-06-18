@@ -26,7 +26,7 @@ const { data } = Astro.props;
       }
 
       if (item._type === "sectionTimeline") {
-        return <Timeline />;
+        return <Timeline client:only />;
       }
 
       if (item._type === "sectionRowCards") {

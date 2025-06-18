@@ -3,7 +3,7 @@ import * as FiIcons from "react-icons/fi";
 
 import { urlFor } from "../../utils/image";
 
-const PERSONS_PER_PAGE = 5;
+const PERSONS_PER_PAGE = 7;
 
 interface Props {
   title: string;
@@ -27,12 +27,17 @@ const Persons = ({ title, persons }: Props) => {
   const [pages, setPages] = React.useState(1);
   const [showMore, setShowMore] = React.useState(true);
 
+  const personsToShow = React.useMemo(
+    () => (PERSONS_PER_PAGE + 1) * pages - 1,
+    [persons, pages],
+  );
+
   const onIncrementPages = () => {
     setPages((prev) => prev + 1);
   };
 
   React.useEffect(() => {
-    if (persons.length <= pages * PERSONS_PER_PAGE) {
+    if (persons.length <= personsToShow) {
       setShowMore(false);
     } else {
       setShowMore(true);
@@ -44,8 +49,8 @@ const Persons = ({ title, persons }: Props) => {
       <h2 className="font-pp text-3xl font-bold uppercase sm:text-4xl md:text-5xl xl:text-6xl">
         {title}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        {persons.slice(0, pages * PERSONS_PER_PAGE).map((person, index) => (
+      <div className="grid grid-cols-2 md:grid-cols-4">
+        {persons.slice(0, personsToShow).map((person, index) => (
           <Person
             key={index}
             name={person.name}
@@ -65,7 +70,7 @@ const ViewMoreButton = ({ onClick }: { onClick: () => void }) => (
     <h3 className="font-pp mb-2 text-2xl font-bold">View more</h3>
     <button
       onClick={onClick}
-      className="hover:bg-pink w-fit cursor-pointer rounded-full border border-gray-700 bg-transparent bg-white/10 p-8 text-white transition-all hover:border-transparent"
+      className="hover:bg-pink w-fit cursor-pointer rounded-full border border-gray-700 bg-white/10 p-8 text-white transition-all hover:border-transparent"
     >
       <FiIcons.FiPlus size={28} className="inline-block" />
     </button>
@@ -83,13 +88,13 @@ const Person = ({ name, role, company, image }: PersonProps) => {
         <img
           src={imageUrl}
           alt={name}
-          className="mb-4 h-20 w-20 rounded-full md:h-28 md:w-28"
-          width={144}
-          height={144}
+          className="mb-4 h-[100px] w-[100px] rounded-full md:h-28 md:w-28"
+          width={100}
+          height={100}
           loading="lazy"
         />
       </div>
-      <h3 className="font-pp mb-2 text-2xl font-bold">{name}</h3>
+      <h3 className="font-pp text-md mb-2 font-bold sm:text-xl">{name}</h3>
       <p className="text-gray">{role}</p>
       <p className="text-gray">{company}</p>
     </div>
