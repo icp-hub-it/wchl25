@@ -54,19 +54,19 @@ const Countdown = ({
         </span>
         {timeLeft.days >= 0 && (
           <div className="font-pp text-center text-xl text-white sm:text-left sm:text-2xl">
-            <span className="text-xl font-bold sm:text-3xl">
+            <span className="text-2xl font-bold sm:text-3xl">
               {timeLeft.days}
             </span>
-            <span className="font-text mr-4 ml-1 text-base uppercase">
+            <span className="font-text mr-4 ml-1 uppercase sm:text-base">
               days
             </span>
-            <span className="text-xl font-bold sm:text-3xl">
+            <span className="text-2xl font-bold sm:text-3xl">
               {timeLeft.hours}
             </span>
             <span className="font-text mr-4 ml-1 text-base uppercase">
               hours
             </span>
-            <span className="text-xl font-bold sm:text-3xl">
+            <span className="text-2xl font-bold sm:text-3xl">
               {timeLeft.minutes}
             </span>
             <span className="font-text ml-1 text-base uppercase">minutes</span>

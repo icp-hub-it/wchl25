@@ -51,7 +51,7 @@ const Hero = ({ homepage }: Props) => (
           <span className="inline-block pt-[.2em]">2025</span>
         </span>
         <div className="ml-auto bg-black sm:p-3">
-          <span className="bg-black text-xs text-white opacity-60 sm:text-lg">
+          <span className="bg-black text-xs text-white opacity-60 sm:text-base">
             In collaboration with
           </span>
           <br />
