@@ -14,7 +14,7 @@ const homepage = await getHomepage();
 
 <Layout>
   <div class="">
-    <Intro homepage={homepage} />
+    <Intro homepage={homepage} client:load />
 
     {homepage?.sections && <Sections data={homepage.sections} />}
   </div>

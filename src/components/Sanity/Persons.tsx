@@ -29,7 +29,7 @@ const Persons = ({ title, persons }: Props) => {
 
   const personsToShow = React.useMemo(
     () => (PERSONS_PER_PAGE + 1) * pages - 1,
-    [persons, pages],
+    [pages],
   );
 
   const onIncrementPages = () => {
@@ -42,7 +42,7 @@ const Persons = ({ title, persons }: Props) => {
     } else {
       setShowMore(true);
     }
-  }, [pages, persons.length]);
+  }, [persons.length, personsToShow]);
 
   return (
     <div className="container mx-auto flex w-full flex-col gap-8 px-4">

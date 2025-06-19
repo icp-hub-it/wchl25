@@ -16,53 +16,53 @@ const Intro = ({ homepage }: Props) => {
   return (
     <div className="home-bg relative h-screen min-h-screen bg-cover bg-repeat">
       <Topbar {...homepage} />
-      <IntroDesktop homepage={homepage} />
+      <Hero homepage={homepage} />
     </div>
   );
 };
 
-const IntroDesktop = ({ homepage }: Props) => (
+const Hero = ({ homepage }: Props) => (
   <div className="flex h-full flex-col justify-center">
     <div className="flex grow flex-col justify-center px-4 pt-20 md:px-8 md:pb-20">
       <div className="flex justify-start">
-        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-6xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
+        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           World
         </span>
       </div>
-      <div className="mb-2 flex justify-start">
-        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-6xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
+      <div className="mb-0 flex justify-start sm:mb-2">
+        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           Computer
         </span>
       </div>
       <div className="flex justify-end">
-        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-6xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
+        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           Hacker
         </span>
       </div>
       <div className="flex justify-end">
-        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-6xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
+        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           League
         </span>
       </div>
-      <div className="flex flex-col items-center justify-between align-middle lg:flex-row">
+      <div className="flex flex-col-reverse items-center justify-between gap-8 align-middle sm:flex-col sm:gap-0 lg:flex-row">
         <span className="font-halo mr-auto mb-2 flex w-fit items-center gap-3 bg-black px-3 py-1 text-right text-2xl leading-[0.9] text-white uppercase sm:text-3xl lg:text-5xl">
           <span className="inline-block pt-[.2em]">July - October</span>
           <Globe width={70} height={40} classes="h-[1em] w-[1.3em]" />
           <span className="inline-block pt-[.2em]">2025</span>
         </span>
-        <div className="ml-auto bg-black p-3">
-          <span className="bg-black text-white opacity-60">
+        <div className="ml-auto bg-black sm:p-3">
+          <span className="bg-black text-xs text-white opacity-60 sm:text-lg">
             In collaboration with
           </span>
           <br />
-          <span className="font-text mt-1 flex w-fit items-center gap-2 text-right text-xl leading-[0.9] text-white uppercase">
+          <span className="font-text flex w-fit items-center gap-2 text-right text-sm leading-[0.9] text-white uppercase sm:mt-1 sm:text-xl">
             <svg
               width="250"
               height="24"
               viewBox="0 0 250 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-56"
+              className="w-35 sm:w-56"
             >
               <path
                 d="M245.25 19.0147L241.614 13.7032L240.091 15.3976V19.0147H237.083V5.51709H240.091V11.1903L245.022 5.51709H248.981L243.727 11.3616L249 19.0147H245.25Z"

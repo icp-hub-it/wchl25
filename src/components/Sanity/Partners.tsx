@@ -29,7 +29,7 @@ const Partners = ({ title, partners }: Props) => {
 
   const partnersToShow = React.useMemo(
     () => (PARTNERS_PER_PAGE + 1) * pages - 1,
-    [partners, pages],
+    [pages],
   );
 
   const onIncrementPages = () => {
@@ -42,7 +42,7 @@ const Partners = ({ title, partners }: Props) => {
     } else {
       setShowMore(true);
     }
-  }, [pages, partners.length]);
+  }, [partners.length, partnersToShow]);
 
   return (
     <div className="container mx-auto flex w-full flex-col gap-8 px-4">
