@@ -55,7 +55,7 @@ const Hero = ({ homepage }: Props) => (
             In collaboration with
           </span>
           <br />
-          <span className="font-text -mt-2 flex w-fit items-center gap-2 text-right text-sm leading-[0.9] text-white uppercase sm:-mt-3 sm:text-xl">
+          <span className="font-text -mt-2 flex w-fit items-center gap-2 text-right text-sm leading-[0.9] text-white uppercase sm:-mt-1 sm:text-xl">
             <svg
               width="250"
               height="24"
