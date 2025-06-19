@@ -29,7 +29,7 @@ const Hero = ({ homepage }: Props) => (
           World
         </span>
       </div>
-      <div className="mb-0 flex justify-start sm:mb-2">
+      <div className="-mt-2 mb-0 flex justify-start sm:-mt-4 sm:mb-2">
         <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           Computer
         </span>
@@ -40,7 +40,7 @@ const Hero = ({ homepage }: Props) => (
         </span>
       </div>
       <div className="flex justify-end">
-        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
+        <span className="font-halo -mt-2 w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:-mt-4 sm:text-7xl md:text-8xl xl:text-9xl">
           League
         </span>
       </div>
@@ -50,12 +50,12 @@ const Hero = ({ homepage }: Props) => (
           <Globe width={70} height={40} classes="h-[1em] w-[1.3em]" />
           <span className="inline-block pt-[.2em]">2025</span>
         </span>
-        <div className="ml-auto bg-black sm:p-3">
+        <div className="-mt-1 ml-auto bg-black sm:-mt-4 sm:p-3">
           <span className="bg-black text-xs text-white opacity-60 sm:text-base">
             In collaboration with
           </span>
           <br />
-          <span className="font-text flex w-fit items-center gap-2 text-right text-sm leading-[0.9] text-white uppercase sm:mt-1 sm:text-xl">
+          <span className="font-text -mt-2 flex w-fit items-center gap-2 text-right text-sm leading-[0.9] text-white uppercase sm:-mt-4 sm:mt-1 sm:text-xl">
             <svg
               width="250"
               height="24"
