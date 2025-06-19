@@ -29,7 +29,7 @@ const Hero = ({ homepage }: Props) => (
           World
         </span>
       </div>
-      <div className="-mt-2 mb-0 flex justify-start sm:-mt-4 sm:mb-2">
+      <div className="-mt-2 mb-0 flex justify-start sm:-mt-3 sm:mb-2">
         <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           Computer
         </span>
@@ -39,8 +39,8 @@ const Hero = ({ homepage }: Props) => (
           Hacker
         </span>
       </div>
-      <div className="flex justify-end">
-        <span className="font-halo -mt-2 w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:-mt-4 sm:text-7xl md:text-8xl xl:text-9xl">
+      <div className="-mt-2 flex justify-end sm:-mt-3">
+        <span className="font-halo w-fit bg-black px-3 pt-[.2em] text-right text-5xl leading-[0.75] text-white uppercase sm:text-7xl md:text-8xl xl:text-9xl">
           League
         </span>
       </div>
