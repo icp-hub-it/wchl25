@@ -76,15 +76,15 @@ const Round = ({
           </div>
         </div>
         <div className="flex flex-col justify-end lg:col-span-2">
-          <p className="text-pink/50">Advancement</p>
+          <p className="text-pink">Advancement</p>
           <p className="">{advancement}</p>
         </div>
         <div className="flex flex-col justify-end lg:col-span-2">
-          <p className="text-pink/50">Prize</p>
+          <p className="text-pink">Prize</p>
           <p className="">{prize}</p>
         </div>
         <div className="flex flex-col justify-end sm:hidden lg:col-span-2">
-          <p className="text-pink/50">Duration</p>
+          <p className="text-pink">Duration</p>
           <p className="">{duration}</p>
         </div>
       </div>
