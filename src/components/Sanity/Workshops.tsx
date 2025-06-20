@@ -292,7 +292,7 @@ const Resource = ({ name, kind, website, participants }: ResourceProps) => {
         <div className="order-0 flex flex-col lg:col-span-2">
           <h3 className="font-pp text-2xl font-bold md:text-3xl">{name}</h3>
           <div>
-            <p className="text-pink/50 capitalize">{kind}</p>
+            <p className="text-pink capitalize">{kind}</p>
           </div>
         </div>
 
