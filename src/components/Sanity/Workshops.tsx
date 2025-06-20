@@ -192,7 +192,7 @@ const Workshop = ({ name, text, kind, date, participants }: WorkshopProps) => {
         <div className="flex flex-col gap-4 lg:col-span-2">
           <h3 className="font-pp text-2xl font-bold md:text-3xl">{name}</h3>
           <div>
-            <p className="text-pink/50 capitalize">{kind} Workshop</p>
+            <p className="text-pink capitalize">{kind} Workshop</p>
           </div>
           <div>
             <p className="text-gray">{text}</p>
