@@ -63,7 +63,7 @@ const Round = ({
         <div className="flex flex-col justify-between gap-4 lg:col-span-3">
           <p className="bg-pink/25 mt-2 w-fit rounded-full px-2">{month}</p>
           <div className="hidden sm:block">
-            <p className="text-pink/50">Duration</p>
+            <p className="text-pink">Duration</p>
             <p className="">{duration}</p>
           </div>
         </div>
