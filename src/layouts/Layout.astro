@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { ClientRouter } from "astro:transitions";
 import { getSettings } from "../utils/sanity";
 
-const { metaTitle, metaDescription, metaImage } = Astro.props;
+const { metaTitle, metaDescription } = Astro.props;
 const settings = await getSettings("en");
 
 const currentPath = Astro.url.pathname;
@@ -21,9 +21,7 @@ const description = metaDescription
     ? settings?.seo?.metaDescription
     : "";
 
-const image = metaImage ? metaImage.asset.url : null;
-
-const canonicalUrl = `https://wchl25.com${currentPath}`;
+const canonicalUrl = `https://wchl25.worldcomputer.com${currentPath}`;
 ---
 
 <!doctype html>
@@ -41,13 +39,19 @@ const canonicalUrl = `https://wchl25.com${currentPath}`;
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta
+      property="og:image"
+      content={"https://wchl25.worldcomputer.com/x_com_icon.jpg"}
+    />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta
+      name="twitter:image"
+      content={"https://wchl25.worldcomputer.com/x_com_icon.jpg"}
+    />
     <ClientRouter />
   </head>
   <body class="bg-page relative overflow-x-clip">

@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as FiIcon from "react-icons/fi";
+import { pushJoinLeagueCountdown } from "../utils/analytics";
 
 interface CountdownParts {
   days: number;
@@ -76,6 +77,7 @@ const Countdown = ({
         <a
           className="font-text bg-pink flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
           href={ctaUrl}
+          onClick={() => pushJoinLeagueCountdown()}
           target="_blank"
         >
           <span className="mr-2 p-2 text-white">

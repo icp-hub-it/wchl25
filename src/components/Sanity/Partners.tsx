@@ -2,6 +2,7 @@ import * as React from "react";
 import * as FiIcons from "react-icons/fi";
 
 import { urlFor } from "../../utils/image";
+import { pushClickPartner, pushViewMorePartners } from "../../utils/analytics";
 
 const PARTNERS_PER_PAGE = 7;
 
@@ -34,6 +35,7 @@ const Partners = ({ title, partners }: Props) => {
 
   const onIncrementPages = () => {
     setPages((prev) => prev + 1);
+    pushViewMorePartners(pages + 1);
   };
 
   React.useEffect(() => {
@@ -82,10 +84,19 @@ const Partner = ({ name, text, website: website, logo }: PartnerProps) => {
     return urlFor(logo).url();
   }, [logo]);
 
+  const trackPartner = () => {
+    pushClickPartner(name);
+  };
+
   return (
     <div className="flex border-collapse flex-col border border-gray-700 p-4 md:p-6">
       <div>
-        <a href={website} target="_blank" className="block">
+        <a
+          href={website}
+          onClick={trackPartner}
+          target="_blank"
+          className="block"
+        >
           <img
             src={imageUrl}
             alt={name}

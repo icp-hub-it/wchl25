@@ -2,6 +2,7 @@ import * as React from "react";
 import * as FiIcons from "react-icons/fi";
 
 import { urlFor } from "../../utils/image";
+import { pushExploreResources } from "../../utils/analytics";
 
 const WORKSHOPS_PER_PAGE = 2;
 const RESOURCES_PER_PAGE = 3;
@@ -285,6 +286,10 @@ const Resource = ({ name, kind, website, participants }: ResourceProps) => {
     [participants],
   );
 
+  const trackResourceClick = () => {
+    pushExploreResources(name);
+  };
+
   return (
     <div className="flex flex-col justify-between gap-4 border-t border-b border-gray-800 p-4 md:p-6">
       <div className="grid gap-4 lg:grid-cols-4">
@@ -300,6 +305,7 @@ const Resource = ({ name, kind, website, participants }: ResourceProps) => {
         <div className="flex flex-col">
           <a
             href={website}
+            onClick={trackResourceClick}
             target="_blank"
             className="order-1 mt-1 w-fit rounded-full bg-white px-2 text-black hover:underline"
           >

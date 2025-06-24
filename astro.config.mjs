@@ -17,7 +17,7 @@ export const { SANITY_STUDIO_PROJECT_ID, SANITY_STUDIO_DATASET } = loadEnv(
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://wchl25.com",
+  site: "https://wchl25.worldcomputer.com",
 
   output: "static",
   i18n: {

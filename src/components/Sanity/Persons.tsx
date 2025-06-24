@@ -2,6 +2,7 @@ import * as React from "react";
 import * as FiIcons from "react-icons/fi";
 
 import { urlFor } from "../../utils/image";
+import { pushViewMoreMentors } from "../../utils/analytics";
 
 const PERSONS_PER_PAGE = 7;
 
@@ -34,6 +35,7 @@ const Persons = ({ title, persons }: Props) => {
 
   const onIncrementPages = () => {
     setPages((prev) => prev + 1);
+    pushViewMoreMentors(pages + 1);
   };
 
   React.useEffect(() => {
