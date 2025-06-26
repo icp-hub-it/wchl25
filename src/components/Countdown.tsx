@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as FiIcon from "react-icons/fi";
 import { pushJoinLeagueCountdown } from "../utils/analytics";
+import { encodeQueryParams, getUtmTags } from "../utils/query";
 
 interface CountdownParts {
   days: number;
@@ -34,6 +35,7 @@ const Countdown = ({
   ctaUrl,
 }: CountdownProps) => {
   const targetDate = React.useMemo(() => new Date(date), [date]);
+  const [utmCtaUrl, setUtmCtaUrl] = React.useState<string>(ctaUrl);
 
   const [timeLeft, setTimeLeft] = React.useState<CountdownParts>(
     calculateTimeLeft(targetDate),
@@ -46,6 +48,16 @@ const Countdown = ({
 
     return () => clearInterval(timer as NodeJS.Timeout);
   }, [targetDate]);
+
+  React.useEffect(() => {
+    const utmTags = getUtmTags();
+    const url =
+      Object.keys(utmTags).length === 0
+        ? ctaUrl
+        : `${ctaUrl}?${encodeQueryParams(utmTags)}`;
+
+    setUtmCtaUrl(url);
+  }, [ctaUrl]);
 
   return (
     <div className="relative right-0 bottom-0 left-0 z-5 flex w-full flex-col items-center md:fixed md:p-4">
@@ -76,7 +88,7 @@ const Countdown = ({
 
         <a
           className="font-text bg-pink flex items-center rounded-full py-1 pr-4 pl-1 font-bold whitespace-nowrap text-white transition-all hover:underline hover:opacity-90"
-          href={ctaUrl}
+          href={utmCtaUrl}
           onClick={() => pushJoinLeagueCountdown()}
           target="_blank"
         >
