@@ -11,6 +11,7 @@ interface RoundProps {
   prize: string;
   month: string;
   duration: string;
+  registrations: string;
 }
 
 const Rounds = ({ title, description, rounds }: RoundsProps) => (
@@ -31,6 +32,7 @@ const Rounds = ({ title, description, rounds }: RoundsProps) => (
           prize={round.prize}
           month={round.month}
           duration={round.duration}
+          registrations={round.registrations}
           index={index}
         />
       ))}
@@ -50,6 +52,7 @@ const Round = ({
   month,
   duration,
   index,
+  registrations,
 }: RoundPropsComponent) => {
   const opacity = (index * 5) / 100;
   const bgColor = `rgba(111, 111, 112, ${opacity})`;
@@ -86,6 +89,10 @@ const Round = ({
         <div className="flex flex-col justify-end sm:hidden lg:col-span-2">
           <p className="text-pink">Duration</p>
           <p className="">{duration}</p>
+        </div>
+        <div className="flex flex-col justify-end sm:hidden lg:col-span-2">
+          <p className="text-pink">Total registrations</p>
+          <p className="">{registrations}</p>
         </div>
       </div>
     </div>

@@ -46,6 +46,10 @@ export const sectionRounds = defineField({
               name: "duration",
               type: "string",
             },
+            {
+              name: "registrations",
+              type: "string",
+            },
           ],
         },
       ],
