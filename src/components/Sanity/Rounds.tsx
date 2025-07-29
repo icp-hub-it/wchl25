@@ -70,7 +70,7 @@ const Round = ({
             <p className="">{duration}</p>
           </div>
         </div>
-        <div className="flex flex-col justify-between sm:gap-4 lg:col-span-5 lg:gap-8">
+        <div className="flex flex-col justify-between sm:gap-4 lg:col-span-3 lg:gap-8">
           <h3 className="font-pp mb-2 text-xl font-bold sm:text-3xl">
             {title}
           </h3>
@@ -90,9 +90,9 @@ const Round = ({
           <p className="text-pink">Duration</p>
           <p className="">{duration}</p>
         </div>
-        <div className="flex flex-col justify-end sm:hidden lg:col-span-2">
-          <p className="text-pink">Total registrations</p>
-          <p className="">{registrations}</p>
+        <div className="flex flex-col justify-end lg:col-span-2">
+          {registrations && <p className="text-pink">Total registrations</p>}
+          {registrations && <p className="">{registrations}</p>}
         </div>
       </div>
     </div>
