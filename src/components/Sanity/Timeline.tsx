@@ -34,9 +34,9 @@ const Timeline = () => {
       <div className="hidden sm:block">
         <Landscape />
       </div>
-      <div className="block w-full px-[16px] sm:hidden">
+      {/* <div className="block w-full px-[16px] sm:hidden">
         <Portrait width={width} height={height} />
-      </div>
+      </div> */}
     </div>
   );
 };
