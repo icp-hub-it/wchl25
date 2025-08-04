@@ -93,8 +93,14 @@ export const sectionWorkshops = defineField({
                   { title: "Community", value: "community" },
                   { title: "Business", value: "business" },
                   { title: "Discord", value: "Join for guidance and support" },
-                  { title: "DoraHacks", value: "Join for info and submissions" },
-                  { title: "Handbook", value: "Get all resources you need in 1 place" },
+                  {
+                    title: "DoraHacks",
+                    value: "Join for info and submissions",
+                  },
+                  {
+                    title: "Handbook",
+                    value: "Get all resources you need in 1 place",
+                  },
                 ],
                 layout: "radio",
               },
