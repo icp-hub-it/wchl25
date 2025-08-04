@@ -1,24 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getHomepage } from "../utils/sanity";
-import Sections from "../components/Sections.astro";
-import Intro from "../components/Intro";
+// import Layout from "../layouts/Layout.astro";
+// import { getHomepage } from "../utils/sanity";
+// import Sections from "../components/Sections.astro";
+// import Intro from "../components/Intro";
 
-let homepage = null;
-let homepageError = false;
+// let homepage = null;
+// let homepageError = false;
 
-try {
-  homepage = await getHomepage();
-  if (!homepage) {
-    homepageError = true;
-  }
-} catch (error) {
-  console.error("Error loading homepage from Sanity:", error);
-  homepageError = true;
-}
+// try {
+//   homepage = await getHomepage();
+//   if (!homepage) {
+//     homepageError = true;
+//   }
+// } catch (error) {
+//   console.error("Error loading homepage from Sanity:", error);
+//   homepageError = true;
+// }
 ---
 
-<script>
+<!-- <script>
   import { initAnalytics } from "../utils/analytics";
   initAnalytics();
 </script>
@@ -48,9 +48,7 @@ try {
   type="text/javascript"
   is:inline
   src="https://wchl25.icphubs.org/script.js"
-  data-website-id="4fe431f1-9533-4d92-95f5-efe3782368d3"></script>
-
-<Layout>
+  data-website-id="4fe431f1-9533-4d92-95f5-efe3782368d3"></script> --><!-- <Layout>
   {
     homepageError ? (
       <div class="relative pt-32 text-center text-red-500">
@@ -64,4 +62,5 @@ try {
       </div>
     )
   }
-</Layout>
+</Layout> -->
+<div>Home</div>
