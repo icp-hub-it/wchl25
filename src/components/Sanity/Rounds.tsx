@@ -11,7 +11,7 @@ interface RoundProps {
   prize: string;
   month: string;
   duration: string;
-  registrations: string;
+  registrations?: string;
 }
 
 const Rounds = ({ title, description, rounds }: RoundsProps) => (
