@@ -17,6 +17,12 @@ export const homepageType = defineType({
   name: "homepage",
   type: "document",
   fields: [
+    defineField({
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
     {
       name: "faqUrl",
       type: "url",
