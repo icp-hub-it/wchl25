@@ -130,9 +130,9 @@ export async function getPage(slug: string) {
   );
 }
 
-export async function getHomepage() {
+export async function getHomepage(locale: string) {
   return await sanityClient.fetch(
-    groq`*[_type == "homepage"][0] {
+    groq`*[_type == "homepage" && language == $locale][0] {
     ctaText,
     ctaUrl,
     faqUrl,
@@ -140,7 +140,7 @@ export async function getHomepage() {
     countdownText,
     ${sectionsFields}
   }`,
-    {},
+    { locale },
   );
 }
 
