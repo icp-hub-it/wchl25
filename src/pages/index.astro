@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-// import { getHomepage } from "../utils/sanity";
-// import Sections from "../components/Sections.astro";
-// import Intro from "../components/Intro";
+import { getHomepage } from "../utils/sanity";
+import Sections from "../components/Sections.astro";
+import Intro from "../components/Intro";
 
-// const homepage = await getHomepage();
+const homepage = await getHomepage();
 ---
 
-<!-- <script>
+<script>
   import { initAnalytics } from "../utils/analytics";
   initAnalytics();
 </script>
@@ -37,11 +37,12 @@ import Layout from "../layouts/Layout.astro";
   type="text/javascript"
   is:inline
   src="https://wchl25.icphubs.org/script.js"
-  data-website-id="4fe431f1-9533-4d92-95f5-efe3782368d3"></script> -->
+  data-website-id="4fe431f1-9533-4d92-95f5-efe3782368d3"></script>
+
 <Layout>
   <div class="">
-    <!-- <Intro homepage={homepage} client:load />
+    <Intro homepage={homepage} client:load />
 
-    {homepage?.sections && <Sections data={homepage.sections} />} -->
+    {homepage?.sections && <Sections data={homepage.sections} />}
   </div>
 </Layout>
