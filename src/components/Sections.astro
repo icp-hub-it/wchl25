@@ -25,9 +25,9 @@ const { data } = Astro.props;
         return <ScrollText text={item.text} />;
       }
 
-      if (item._type === "sectionTimeline") {
-        return <Timeline client:only />;
-      }
+      // if (item._type === "sectionTimeline") {
+      //   return <Timeline client:only />;
+      // }
 
       if (item._type === "sectionRowCards") {
         return <Cards title={item.title} cards={item.items} />;
