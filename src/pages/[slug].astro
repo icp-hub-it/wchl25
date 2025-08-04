@@ -20,8 +20,6 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
 const page = await getPage(slug);
-
-console.log(page);
 ---
 
 <Layout

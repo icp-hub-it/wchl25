@@ -4,7 +4,18 @@ import { getHomepage } from "../utils/sanity";
 import Sections from "../components/Sections.astro";
 import Intro from "../components/Intro";
 
-const homepage = await getHomepage();
+let homepage = null;
+let homepageError = false;
+
+try {
+  homepage = await getHomepage();
+  if (!homepage) {
+    homepageError = true;
+  }
+} catch (error) {
+  console.error("Error loading homepage from Sanity:", error);
+  homepageError = true;
+}
 ---
 
 <script>
@@ -40,9 +51,17 @@ const homepage = await getHomepage();
   data-website-id="4fe431f1-9533-4d92-95f5-efe3782368d3"></script>
 
 <Layout>
-  <div class="">
-    <Intro homepage={homepage} client:load />
-
-    {homepage?.sections && <Sections data={homepage.sections} />}
-  </div>
+  {
+    homepageError ? (
+      <div class="relative pt-32 text-center text-red-500">
+        <h1 class="text-4xl font-bold">Error loading homepage</h1>
+        <p>Please try again later or contact support.</p>
+      </div>
+    ) : (
+      <div>
+        <Intro homepage={homepage} client:load />
+        {homepage?.sections && <Sections data={homepage.sections} />}
+      </div>
+    )
+  }
 </Layout>
