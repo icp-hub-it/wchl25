@@ -1,6 +1,6 @@
 ---
 import ScrollText from "./Sanity/ScrollText";
-// import Timeline from "./Sanity/Timeline";
+import Timeline from "./Sanity/Timeline";
 import Cards from "./Sanity/Cards";
 import Steps from "./Sanity/Steps";
 import Persons from "./Sanity/Persons";
@@ -25,9 +25,9 @@ const { data } = Astro.props;
         return <ScrollText text={item.text} />;
       }
 
-      // if (item._type === "sectionTimeline") {
-      //   return <Timeline client:only />;
-      // }
+      if (item._type === "sectionTimeline") {
+        return <Timeline client:only />;
+      }
 
       if (item._type === "sectionRowCards") {
         return <Cards title={item.title} cards={item.items} />;

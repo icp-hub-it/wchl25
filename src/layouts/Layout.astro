@@ -1,28 +1,28 @@
 ---
 import "../styles/global.css";
-// import Footer from "../components/Footer";
-// import { ClientRouter } from "astro:transitions";
-// import { getSettings } from "../utils/sanity";
-// import Topbar from "../components/Intro/Topbar";
+import Footer from "../components/Footer";
+import { ClientRouter } from "astro:transitions";
+import { getSettings } from "../utils/sanity";
+import Topbar from "../components/Intro/Topbar";
 
-// const { metaTitle, metaDescription } = Astro.props;
-// const settings = await getSettings("en");
+const { metaTitle, metaDescription } = Astro.props;
+const settings = await getSettings("en");
 
-// const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname;
 
-// const title = metaTitle
-//   ? `${metaTitle}`
-//   : settings?.seo?.metaTitle
-//     ? settings?.seo?.metaTitle
-//     : "Swiss Subnet";
+const title = metaTitle
+  ? `${metaTitle}`
+  : settings?.seo?.metaTitle
+    ? settings?.seo?.metaTitle
+    : "Swiss Subnet";
 
-// const description = metaDescription
-//   ? metaDescription
-//   : settings?.seo?.metaDescription
-//     ? settings?.seo?.metaDescription
-//     : "";
+const description = metaDescription
+  ? metaDescription
+  : settings?.seo?.metaDescription
+    ? settings?.seo?.metaDescription
+    : "";
 
-// const canonicalUrl = `https://wchl25.worldcomputer.com${currentPath}`;
+const canonicalUrl = `https://wchl25.worldcomputer.com${currentPath}`;
 ---
 
 <!doctype html>
@@ -35,7 +35,7 @@ import "../styles/global.css";
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <meta name="generator" content={Astro.generator} />
-    <!-- <title>{title}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
@@ -48,19 +48,19 @@ import "../styles/global.css";
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} /> -->
+    <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
       content={"https://wchl25.worldcomputer.com/x_com_icon.jpg"}
     />
-    <!-- <ClientRouter /> -->
+    <ClientRouter />
   </head>
   <body class="bg-page relative overflow-x-clip">
-    <!-- <Topbar {...settings} /> -->
+    <Topbar {...settings} />
     <main class="animate-appear min-h-screen">
       <slot />
     </main>
-    <!-- <Footer /> -->
+    <Footer />
   </body>
 </html>
 
