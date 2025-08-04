@@ -1,5 +1,4 @@
 import Globe from "./Intro/Globe";
-import Topbar from "./Intro/Topbar";
 import Countdown from "./Countdown";
 
 interface Props {
@@ -15,7 +14,6 @@ interface Props {
 const Intro = ({ homepage }: Props) => {
   return (
     <div className="home-bg relative h-screen min-h-screen bg-cover bg-repeat">
-      <Topbar {...homepage} />
       <Hero homepage={homepage} />
     </div>
   );

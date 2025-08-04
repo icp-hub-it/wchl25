@@ -3,13 +3,16 @@ import Globe from "./ScrollText/Globe";
 
 interface Props {
   text: string;
+  background?: string;
 }
 
-const ScrollText = ({ text }: Props) => {
+const ScrollText = ({ text, background }: Props) => {
   // repeat 10 times
   const repeatedText = Array(10).fill(text);
   return (
-    <div className="relative flex items-center overflow-x-hidden bg-white/10">
+    <div
+      className={`relative flex items-center overflow-x-hidden ${background ? background : "bg-white/10"}`}
+    >
       <div className="animate-marquee font-halo flex w-full items-center gap-2 py-1 text-5xl leading-[0.95] whitespace-nowrap uppercase md:text-6xl lg:text-7xl">
         {repeatedText.map((line, index) => (
           <React.Fragment key={index}>

@@ -18,6 +18,12 @@ export const pageType = defineType({
       type: "string",
     }),
     defineField({
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    }),
+    defineField({
       name: "slug",
       type: "slug",
       options: {
@@ -30,6 +36,136 @@ export const pageType = defineType({
       type: "array",
       of: [sectionFaq],
       hidden: ({ parent }) => parent?.template !== "default",
+    }),
+    defineField({
+      name: "leaderboard",
+      type: "object",
+      fields: [
+        {
+          name: "headline",
+          type: "string",
+        },
+        {
+          name: "tabs",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  name: "title",
+                  type: "string",
+                },
+                {
+                  name: "projects",
+                  type: "array",
+                  of: [
+                    {
+                      type: "object",
+                      fields: [
+                        {
+                          name: "name",
+                          type: "string",
+                        },
+                        {
+                          name: "github",
+                          type: "url",
+                        },
+                        {
+                          name: "link",
+                          type: "url",
+                        },
+                        {
+                          name: "score",
+                          type: "number",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      hidden: ({ parent }) => parent?.template !== "leaderboard",
+    }),
+    defineField({
+      name: "winners",
+      type: "object",
+      fields: [
+        {
+          name: "headline",
+          type: "string",
+        },
+        {
+          name: "rounds",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  name: "title",
+                  type: "string",
+                },
+                {
+                  name: "hubs",
+                  type: "array",
+                  of: [
+                    {
+                      type: "object",
+                      fields: [
+                        {
+                          name: "name",
+                          type: "string",
+                        },
+                        {
+                          name: "logos",
+                          type: "array",
+                          of: [{ type: "image" }],
+                        },
+                        {
+                          name: "projects",
+                          type: "array",
+                          of: [
+                            {
+                              type: "object",
+                              fields: [
+                                {
+                                  name: "name",
+                                  type: "string",
+                                },
+                                {
+                                  name: "github",
+                                  type: "url",
+                                },
+                                {
+                                  name: "link",
+                                  type: "url",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      hidden: ({ parent }) => parent?.template !== "winners",
+    }),
+    defineField({
+      name: "template",
+      type: "string",
+      initialValue: "default",
+      options: {
+        list: ["default", "winners", "leaderboard"],
+      },
     }),
     seo,
   ],

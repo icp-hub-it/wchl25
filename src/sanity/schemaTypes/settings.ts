@@ -98,7 +98,18 @@ export const settingsType = defineType({
       readOnly: true,
       hidden: true,
     }),
-
+    {
+      name: "faqUrl",
+      type: "url",
+    },
+    {
+      name: "ctaText",
+      type: "string",
+    },
+    {
+      name: "ctaUrl",
+      type: "url",
+    },
     // ✅ Header Group
     defineField({
       name: "header",

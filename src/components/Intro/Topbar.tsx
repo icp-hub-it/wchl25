@@ -24,11 +24,11 @@ const Topbar = ({ ctaText, ctaUrl, faqUrl }: Props) => {
   }, [ctaUrl]);
 
   return (
-    <div className="absolute flex w-screen py-4">
+    <div className="absolute z-20 flex w-screen py-4">
       <div className="flex w-full items-center justify-between gap-8 px-4 sm:px-8">
-        <div className="flex items-center gap-2">
+        <a className="flex items-center gap-2" href="/">
           <Icp width={200} height={60} classes="w-48" />
-        </div>
+        </a>
         <div className="hidden items-center justify-between gap-4 sm:flex sm:justify-end">
           <a
             className="font-text block rounded-full bg-white/20 px-4 py-3 align-middle text-white transition-all hover:bg-white/15 hover:underline"

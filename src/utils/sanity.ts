@@ -62,10 +62,9 @@ export async function getLocalizedPosts(
   );
 }
 
-export async function getPages(locale: string) {
+export async function getPages() {
   return await sanityClient.fetch(
-    groq`*[_type == "page" && defined(slug.current) && language == $locale] | order(_createdAt desc){language, slug}`,
-    { locale },
+    groq`*[_type == "page" && defined(slug.current) ] | order(_createdAt desc){language, slug}`,
   );
 }
 
@@ -111,9 +110,9 @@ export async function getPost(locale: string, slug: string): Promise<Post> {
   );
 }
 
-export async function getPage(locale: string, slug: string) {
+export async function getPage(slug: string) {
   return await sanityClient.fetch(
-    groq`*[_type == "page" && slug.current == $slug && language == $locale][0]{
+    groq`*[_type == "page" && slug.current == $slug][0]{
       title,
       ...,
       heroSection {
@@ -123,13 +122,9 @@ export async function getPage(locale: string, slug: string) {
         },
       },
       ${sectionsFields},
-      "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-        slug,
-        language
-      },
+      
     }`,
     {
-      locale,
       slug,
     },
   );
@@ -152,6 +147,7 @@ export async function getHomepage() {
 export async function getSettings(locale: string) {
   return await sanityClient.fetch(
     groq`*[_type == "settings" && language == $locale][0]{
+    ...,
       header []{
         _type,
         ${linkFields},

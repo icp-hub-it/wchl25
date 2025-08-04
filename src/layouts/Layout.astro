@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Footer from "../components/Footer";
 import { ClientRouter } from "astro:transitions";
 import { getSettings } from "../utils/sanity";
+import Topbar from "../components/Intro/Topbar";
 
 const { metaTitle, metaDescription } = Astro.props;
 const settings = await getSettings("en");
@@ -55,6 +56,7 @@ const canonicalUrl = `https://wchl25.worldcomputer.com${currentPath}`;
     <ClientRouter />
   </head>
   <body class="bg-page relative overflow-x-clip">
+    <Topbar {...settings} />
     <main class="animate-appear min-h-screen">
       <slot />
     </main>

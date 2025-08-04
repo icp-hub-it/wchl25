@@ -1,0 +1,47 @@
+---
+import type { InferGetStaticParamsType } from "astro";
+import { getPages } from "../utils/sanity";
+import { getPage } from "../utils/sanity";
+import Layout from "../layouts/Layout.astro";
+import Sections from "../components/Sections.astro";
+import { Leaderboard } from "../components/Sanity/Leaderboard";
+import { Winners } from "../components/Sanity/Winners";
+
+export async function getStaticPaths() {
+  let paths: Array<{ params: { slug: string } }> = [];
+  const pages = await getPages();
+  for (const page of pages) {
+    paths.push({ params: { slug: page.slug.current } });
+  }
+  return paths;
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+const { slug } = Astro.params as Params;
+
+const page = await getPage(slug);
+
+console.log(page);
+---
+
+<Layout
+  metaTitle={page?.seo?.metaTitle ?? page?.title}
+  metaDescription={page?.seo?.metaDescription}
+  metaImage={page?.seo?.metaImage}
+>
+  {
+    page?.template === "winners" ? (
+      <Winners data={page.winners} client:load />
+    ) : page?.template === "leaderboard" ? (
+      <Leaderboard data={page.leaderboard} client:load />
+    ) : (
+      <div class="relative pt-32">
+        <div
+          class={`grid items-center ${page.sections?.length < 2 ? "gap-y-12 md:gap-y-20 2xl:gap-y-24" : "gap-y-24 md:gap-y-48 2xl:gap-y-64"}`}
+        >
+          {page?.sections && <Sections data={page.sections} />}
+        </div>
+      </div>
+    )
+  }
+</Layout>
