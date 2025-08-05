@@ -43,11 +43,20 @@ const Hero = ({ homepage }: Props) => (
         </span>
       </div>
       <div className="flex flex-col-reverse items-center justify-between gap-8 align-middle sm:flex-col sm:gap-0 lg:flex-row">
-        <span className="font-halo mr-auto mb-2 flex w-fit items-center gap-3 bg-black px-3 py-1 text-right text-2xl leading-[0.9] text-white uppercase sm:text-3xl lg:text-5xl">
-          <span className="inline-block pt-[.2em]">July - October</span>
-          <Globe width={70} height={40} classes="h-[1em] w-[1.3em]" />
-          <span className="inline-block pt-[.2em]">2025</span>
-        </span>
+        <div>
+          <span className="font-halo mr-auto mb-2 flex w-fit items-center gap-3 bg-black px-3 py-1 text-right text-2xl leading-[0.9] text-white uppercase sm:text-3xl lg:text-5xl">
+            <span className="inline-block pt-[.2em]">July - October</span>
+            <Globe width={70} height={40} classes="h-[1em] w-[1.3em]" />
+            <span className="inline-block pt-[.2em]">2025</span>
+          </span>
+          <span className="mr-auto mb-2 flex w-fit flex-col bg-black px-3 py-1 leading-[0.9] text-white">
+            <span className="inline-block pt-[.2em] opacity-50">
+              Total registrations
+            </span>
+            <span className="block pt-[.2em] text-2xl">11774 builders</span>
+          </span>
+        </div>
+
         <div className="-mt-1 ml-auto bg-black sm:-mt-4 sm:p-3">
           <span className="bg-black text-xs text-white opacity-60 sm:text-base">
             In collaboration with
