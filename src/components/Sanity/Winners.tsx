@@ -38,9 +38,9 @@ export const Winners = ({ data }: DataProps) => {
 
   return (
     <div>
-      <div className="home-bg relative flex min-h-screen flex-col justify-center">
+      <div className="home-bg relative flex flex-col justify-center">
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-        <ScrollText text={data.headline} background="bg-black" />
+        <ScrollText text={data.headline} background="bg-black my-40 md:my-64" />
       </div>
       {data && (
         <div className="px-8">
