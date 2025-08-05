@@ -46,7 +46,7 @@ export default defineConfig({
     codeInput(),
     documentInternationalization({
       supportedLanguages,
-      schemaTypes: ["page", "homepage", "post", "settings"],
+      schemaTypes: ["page", "homepage", "post", "settings", "project"],
     }),
     structureTool({
       structure: (S, context) => {
@@ -76,7 +76,7 @@ export default defineConfig({
                         .documentId("homepage"),
                     ),
 
-                  createLocalizedList(S, "post", "News"),
+                  createLocalizedList(S, "project", "Projects"),
                   createLocalizedList(S, "page", "Pages"),
                 ]
               : [createLocalizedList(S, "post", "News")],
@@ -93,7 +93,7 @@ export default defineConfig({
         (role) => role.name === "administrator",
       );
       return templates.filter(({ id }) =>
-        isAdmin ? id === "page" || id === "post" : id === "post",
+        isAdmin ? id === "page" || id === "project" : id === "post",
       );
     },
   },

@@ -5,6 +5,7 @@ import { postType } from "./post";
 import { homepageType } from "./homepage";
 import { faqType } from "./faq";
 import { settingsType } from "./settings";
+import { projectType } from "./project";
 
 export const schemaTypes = [
   pageType,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   postType,
   homepageType,
   settingsType,
+  projectType,
 ];

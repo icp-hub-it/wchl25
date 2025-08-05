@@ -45,48 +45,6 @@ export const pageType = defineType({
           name: "headline",
           type: "string",
         },
-        {
-          name: "tabs",
-          type: "array",
-          of: [
-            {
-              type: "object",
-              fields: [
-                {
-                  name: "title",
-                  type: "string",
-                },
-                {
-                  name: "projects",
-                  type: "array",
-                  of: [
-                    {
-                      type: "object",
-                      fields: [
-                        {
-                          name: "name",
-                          type: "string",
-                        },
-                        {
-                          name: "github",
-                          type: "url",
-                        },
-                        {
-                          name: "link",
-                          type: "url",
-                        },
-                        {
-                          name: "score",
-                          type: "number",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
       ],
       hidden: ({ parent }) => parent?.template !== "leaderboard",
     }),

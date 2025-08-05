@@ -54,7 +54,7 @@ export const Winners = ({ data }: DataProps) => {
                 >
                   <button
                     onClick={() => handleClick(i)}
-                    className={`bg-pink cursor-pointer rounded-full px-3 py-2 ${activeTab === i ? "" : "opacity-50"} ${item.hubs && item.hubs?.length > 0 ? "" : "pointer-events-none"}`}
+                    className={`bg-pink cursor-pointer rounded-full px-3 py-2 transition ${activeTab === i ? "" : "opacity-60 hover:opacity-80"} ${item.hubs && item.hubs?.length > 0 ? "" : "pointer-events-none"}`}
                   >
                     {item.title}
                   </button>
@@ -98,7 +98,11 @@ export const Winners = ({ data }: DataProps) => {
                           <div className="text-2xl font-bold">{p.name}</div>
                           <div className="flex gap-4">
                             {p.github && (
-                              <a href={p.github} target="_blank">
+                              <a
+                                href={p.github}
+                                target="_blank"
+                                className="transition hover:opacity-70"
+                              >
                                 <svg
                                   width="24"
                                   height="23"
@@ -115,7 +119,11 @@ export const Winners = ({ data }: DataProps) => {
                               </a>
                             )}
                             {p.link && (
-                              <a href={p.link} target="_blank">
+                              <a
+                                href={p.link}
+                                target="_blank"
+                                className="transition hover:opacity-70"
+                              >
                                 <svg
                                   width="25"
                                   height="24"

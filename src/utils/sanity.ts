@@ -130,6 +130,28 @@ export async function getPage(slug: string) {
   );
 }
 
+export async function getProjects(tab: string) {
+  if (tab === "0") {
+    return await sanityClient.fetch(
+      groq`*[_type == "project" ]| order(score desc)[0...100]{
+      ...
+    }`,
+      {
+        tab,
+      },
+    );
+  } else {
+    return await sanityClient.fetch(
+      groq`*[_type == "project" && tab == $tab]| order(score desc)[0...100]{
+      ...
+    }`,
+      {
+        tab,
+      },
+    );
+  }
+}
+
 export async function getHomepage(locale: string) {
   return await sanityClient.fetch(
     groq`*[_type == "homepage" && language == $locale][0] {
