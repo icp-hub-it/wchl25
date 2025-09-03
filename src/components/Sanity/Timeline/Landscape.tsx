@@ -5,6 +5,7 @@ const Landscape = () => (
     viewBox="0 0 1220 412"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="w-full"
   >
     <circle cx="7" cy="17" r="7" fill="white" />
     <path

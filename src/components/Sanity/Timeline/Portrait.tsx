@@ -1,15 +1,16 @@
-interface Props {
-  height: number;
-  width: number;
-}
+// interface Props {
+//   height: number;
+//   width: number;
+// }
 
-const Portrait = ({ height, width }: Props) => (
+const Portrait = () => (
   <svg
-    width={height}
-    height={width}
+    width="732"
+    height="835"
     viewBox="0 0 732 835"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="w-full"
   >
     <path
       d="M354 15.3333C352.527 15.3333 351.333 16.5272 351.333 18C351.333 19.4728 352.527 20.6667 354 20.6667C355.473 20.6667 356.667 19.4728 356.667 18C356.667 16.5272 355.473 15.3333 354 15.3333ZM353.5 741C353.5 741.276 353.724 741.5 354 741.5C354.276 741.5 354.5 741.276 354.5 741L353.5 741ZM354 18L353.5 18L353.5 741L354 741L354.5 741L354.5 18L354 18Z"
