@@ -91,7 +91,7 @@ const Round = ({
           <p className="">{duration}</p>
         </div>
         <div className="flex flex-col justify-end lg:col-span-2">
-          {registrations && <p className="text-pink">Submission</p>}
+          {registrations && <p className="text-pink">Total Registrations</p>}
           {registrations && <p className="">{registrations}</p>}
         </div>
       </div>
